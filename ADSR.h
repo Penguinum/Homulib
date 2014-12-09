@@ -34,6 +34,7 @@ private:
     float last_value, release_max;
 
 public:
+    ADSR(size_t sr) : Basegen(sr) {}
     void start();
     void setAttack(float value);
     void setDecay(float value);
