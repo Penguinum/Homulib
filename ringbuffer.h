@@ -1,0 +1,34 @@
+/*
+  ==============================================================================
+
+    ringbuffer.h
+    Created: 25 Nov 2014 8:08:00pm
+    Author:  Penguinum-tea
+
+  ==============================================================================
+*/
+
+#ifndef RINGBUFFER_H
+#define RINGBUFFER_H
+
+#include <vector>
+#include <cstdlib>
+
+namespace homu {
+
+class RingBuffer : public std::vector<float> {
+private:
+    int currentPos;
+    size_t buf_size;
+
+public:
+    RingBuffer() {}
+    float getFromOffset(int i);
+    void fill(float f);
+    void apply(float f);
+    void smartResize(size_t N);
+};
+
+}
+
+#endif
