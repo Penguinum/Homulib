@@ -1,20 +1,20 @@
 /*
   ==============================================================================
 
-    SawGenerator.cpp
+    TriangleGenerator.cpp
     Created: 08 Dec 2014 18.41
     Author:  Penguinum-tea
 
   ==============================================================================
 */
 
-#include "SawGenerator.h"
+#include "TriangleGenerator.h"
 #include <cmath>
 #include <stdio.h>
 
 namespace homu {
 
-void SawGenerator::start(float freq) {
+void TriangleGenerator::start(float freq) {
     frequency = freq;
     phase = M_PI * 0.5;
     sample_num = 0;
@@ -23,7 +23,7 @@ void SawGenerator::start(float freq) {
     coef_down = - 2.0 / M_PI;
 }
 
-float SawGenerator::nextSample() {
+float TriangleGenerator::nextSample() {
     if (phase >= 2 * M_PI) {
         phase -= 2 * M_PI;
     }

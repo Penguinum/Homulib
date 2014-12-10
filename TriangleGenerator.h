@@ -1,7 +1,7 @@
 /*
   ==============================================================================
 
-    SawGenerator.h
+    TriangleGenerator.h
     Created: 08 Dec 2014 18:41
     Author:  Penguinum-tea
 
@@ -16,14 +16,14 @@
 
 namespace homu {
 
-class SawGenerator : public Generator {
+class TriangleGenerator : public Generator {
 private:
     float phase;
     float phase_delta;
     float coef_up, coef_down;
 
 public:
-    SawGenerator(size_t sr)
+    TriangleGenerator(size_t sr)
         : Generator(sr), phase(0), phase_delta(0), coef_up(0), coef_down(0) {}
     virtual float nextSample();
     virtual void start(float freq);
