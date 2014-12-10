@@ -17,12 +17,11 @@ namespace homu {
 
 class Basegen {
 protected:
-    float last_value;
     size_t sample_rate;
     size_t sample_num;
 
 public:
-    Basegen(size_t sr) : last_value(0), sample_rate(sr), sample_num(0) {}
+    Basegen(size_t sr) : sample_rate(sr), sample_num(0) {}
     //void setFrequency(float freq);
 };
 
