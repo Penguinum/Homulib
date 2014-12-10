@@ -18,39 +18,55 @@ void ADSR::start() {
     current_sample = 0;
 }
 
-void ADSR::setAttack(float a) { attack = int(a * sample_rate * 0.5 + 1); }
+void ADSR::setAttack(float a) { attack = int(a * sample_rate); }
 
-void ADSR::setDecay(float d) { decay = int(d * sample_rate * 0.5 + 1); }
+void ADSR::setDecay(float d) { decay = int(d * sample_rate); }
 
 void ADSR::setSustain(float s) { sustain = s; }
 
-void ADSR::setRelease(float r) { release = int(r * sample_rate * 0.5 + 1); }
+void ADSR::setRelease(float r) { release = int(r * sample_rate); }
 
 float ADSR::nextSample() {
     const int cur_state = state;
     switch (cur_state) {
     case attackState:
-        last_value = float(current_sample) / float(attack);
-        if (current_sample >= attack) {
+        if (attack == 0) {
+            last_value = 1;
             state++;
-            current_sample = 0;
+        } else {
+            last_value = float(current_sample) / float(attack);
+            if (current_sample >= attack) {
+                state++;
+                current_sample = 0;
+            }
         }
         break;
     case decayState:
-        last_value = 1 - (1 - sustain) * float(current_sample) / float(decay);
-        if (current_sample >= decay) {
+        if (decay == 0) {
+            last_value = sustain;
             state++;
-            current_sample = 0;
+        } else {
+            last_value =
+                1 - (1 - sustain) * float(current_sample) / float(decay);
+            if (current_sample >= decay) {
+                state++;
+                current_sample = 0;
+            }
         }
         break;
     case sustainState:
         last_value = sustain;
         break;
     case releaseState:
-        last_value =
-            release_max - release_max * float(current_sample) / float(release);
-        if (current_sample >= release) {
-            state = finalState;
+        if (release == 0) {
+            last_value = 0;
+            state++;
+        } else {
+            last_value = release_max -
+                         release_max * float(current_sample) / float(release);
+            if (current_sample >= release) {
+                state = finalState;
+            }
         }
         break;
     default:
