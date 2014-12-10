@@ -18,8 +18,7 @@ namespace homu {
 
 class RingBuffer : public std::vector<float> {
 private:
-    int currentPos;
-    size_t buf_size;
+    size_t currentPos, buf_size;
 
 public:
     RingBuffer() : currentPos(0), buf_size(1) {}

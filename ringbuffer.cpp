@@ -9,11 +9,12 @@
 */
 
 #include "ringbuffer.h"
+#include <cstdlib>
 
 namespace homu {
 
 float RingBuffer::getFromOffset(int i) {
-    if (currentPos + i < 0) {
+    if ((int)currentPos + i < 0) {
         return at(buf_size + i - currentPos);
     } else if (currentPos + i >= buf_size) {
         return at(currentPos + i - buf_size);
@@ -23,7 +24,7 @@ float RingBuffer::getFromOffset(int i) {
 }
 
 void RingBuffer::fill(float f) {
-    for (int i = 0; i < buf_size; i++) {
+    for (size_t i = 0; i < buf_size; i++) {
         (*this)[i] = f;
     }
 }
