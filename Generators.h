@@ -22,7 +22,7 @@ protected:
     size_t sample_num;
 
 public:
-    Basegen(size_t sr) : sample_rate(sr) {}
+    Basegen(size_t sr) : last_value(0), sample_rate(sr), sample_num(0) {}
     //void setFrequency(float freq);
 };
 
@@ -31,7 +31,7 @@ protected:
     float frequency;
 
 public:
-    Generator(size_t sr) : Basegen(sr) {}
+    Generator(size_t sr) : Basegen(sr), frequency(200){}
     virtual float nextSample();
     virtual void start(float freq);
 };

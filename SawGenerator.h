@@ -23,7 +23,8 @@ private:
     float coef_up, coef_down;
 
 public:
-    SawGenerator(size_t sr) : Generator(sr) {}
+    SawGenerator(size_t sr)
+        : Generator(sr), phase(0), phase_delta(0), coef_up(0), coef_down(0) {}
     virtual float nextSample();
     virtual void start(float freq);
 };

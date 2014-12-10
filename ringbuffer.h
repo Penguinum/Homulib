@@ -22,7 +22,7 @@ private:
     size_t buf_size;
 
 public:
-    RingBuffer() {}
+    RingBuffer() : currentPos(0), buf_size(1) {}
     float getFromOffset(int i);
     void fill(float f);
     void apply(float f);
