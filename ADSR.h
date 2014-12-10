@@ -44,7 +44,7 @@ public:
     void setRelease(float value);
     void stopSustain();
     float nextSample();
-    bool finished();
+    bool finished() const;
 };
 
 }

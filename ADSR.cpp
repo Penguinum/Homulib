@@ -69,7 +69,7 @@ void ADSR::stopSustain() {
     }
 }
 
-bool ADSR::finished() {
+bool ADSR::finished() const {
     return (state == finalState);
 }
 
