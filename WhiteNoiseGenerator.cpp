@@ -19,7 +19,7 @@ void WhiteNoiseGenerator::start(float freq) {
 }
 
 float WhiteNoiseGenerator::nextSample() {
-    return rand()/float(RAND_MAX);
+    return rand()/float(RAND_MAX) * 2.0 - 1;
 }
 
 }
