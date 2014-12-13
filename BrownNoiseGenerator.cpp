@@ -20,7 +20,9 @@ void BrownNoiseGenerator::start(float freq) {
 }
 
 float BrownNoiseGenerator::nextSample() {
-    last_value = last_value + rand()/float(RAND_MAX) * 2.0 - 1;
+    float white = rand()/float(RAND_MAX) * 2.0 - 1;
+    last_value = (last_value + 0.02*white) / 1.02;
+    //if ((last_value > 1) or (last_value < -1)) { last_value = 0; }
     return last_value;
 }
 
