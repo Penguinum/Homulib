@@ -55,11 +55,9 @@ float ADSR::nextSample() {
         }
         break;
     case sustainState:
-        printf("we're in sustain state\n");
         last_value = sustain;
         break;
     case releaseState:
-        printf("we're in release state\n");
         if (release == 0) {
             last_value = 0;
             state++;
