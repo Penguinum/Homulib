@@ -22,6 +22,11 @@ private:
     size_t decay;
     float sustain;
     size_t release;
+    int state;
+    size_t current_sample;
+    float last_value, release_max;
+
+public:
     enum States {
         attackState,
         decayState,
@@ -29,11 +34,6 @@ private:
         releaseState,
         finalState
     };
-    int state;
-    size_t current_sample;
-    float last_value, release_max;
-
-public:
     ADSR(size_t sr)
         : Basegen(sr), attack(1), decay(1), sustain(1), release(1),
           state(attackState), current_sample(0), last_value(0), release_max(0) {}
@@ -45,6 +45,8 @@ public:
     void stopSustain();
     float nextSample();
     bool finished() const;
+    int getState();
+    void setState(int state);
 };
 
 }
