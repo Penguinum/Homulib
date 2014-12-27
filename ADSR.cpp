@@ -9,7 +9,6 @@
 */
 
 #include "ADSR.h"
-#include <stdio.h>
 
 namespace homu {
 
@@ -31,7 +30,6 @@ float ADSR::nextSample() {
     switch (cur_state) {
     case attackState:
         if (attack == 0) {
-            last_value = 1;
             state++;
         } else {
             last_value = float(current_sample) / float(attack);
@@ -39,11 +37,10 @@ float ADSR::nextSample() {
                 state++;
                 current_sample = 0;
             }
+            break;
         }
-        break;
     case decayState:
         if (decay == 0) {
-            last_value = sustain;
             state++;
         } else {
             last_value =
@@ -52,8 +49,8 @@ float ADSR::nextSample() {
                 state++;
                 current_sample = 0;
             }
+            break;
         }
-        break;
     case sustainState:
         last_value = sustain;
         break;
