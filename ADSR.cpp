@@ -74,6 +74,10 @@ float ADSR::nextSample() {
     return last_value;
 }
 
+float ADSR::nextSample(float s) {
+    return s * nextSample();
+}
+
 void ADSR::stopSustain() {
     if (state < releaseState) {
         state = releaseState;
