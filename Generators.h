@@ -22,6 +22,7 @@ protected:
 
 public:
     Basegen(size_t sr) : sample_rate(sr), sample_num(0) {}
+    virtual ~Basegen() {}
     //void setFrequency(float freq);
 };
 
