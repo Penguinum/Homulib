@@ -1,5 +1,5 @@
 CXXFLAGS=-Wall
-BINARY=testapp
+BINARY=example
 
 all: build
 
@@ -11,4 +11,4 @@ check:
 	cppcheck -q -j4 --enable=performance,portability,warning,style ./
 
 clean:
-	rm testapp *.o
+	rm $(BINARY) *.o

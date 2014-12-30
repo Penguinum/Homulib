@@ -15,6 +15,7 @@ namespace homu {
 void ADSR::start() {
     state = attackState;
     current_sample = 0;
+    sample_num = 0;
 }
 
 void ADSR::setAttack(float a) { attack = int(a * sample_rate); }
@@ -71,6 +72,7 @@ float ADSR::nextSample() {
         break;
     }
     current_sample++;
+    sample_num++;
     return last_value;
 }
 
