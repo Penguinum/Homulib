@@ -9,7 +9,7 @@
 */
 
 // This generator is surely useless, but I think it must be here.
-
+#define _USE_MATH_DEFINES
 #include "SinusGenerator.h"
 #include <cmath>
 #include <stdio.h>
