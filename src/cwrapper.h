@@ -1,3 +1,6 @@
+#ifndef CWRAPPER_H
+#define CWRAPPER_H
+
 #include <stdlib.h>
 
 #ifdef __cplusplus
@@ -24,4 +27,6 @@ void  ADSR_stopSustain   (void *v);
 
 #ifdef __cplusplus
 }
+#endif
+
 #endif
