@@ -1,3 +1,4 @@
+#define BUILD_THIS_LIB
 #include "cwrapper.h"
 #include "SinewaveGenerator.h"
 #include "ADSR.h"

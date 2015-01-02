@@ -17,8 +17,7 @@ int main() {
         if (ADSR_secondsPlayed(adsr) >= 0.7) {
             ADSR_stopSustain(adsr);
         }
-        float sample = ADSR_nextSample(adsr) * SinewaveGenerator_nextSample(gen);
-        printf("%f\n", sample);
+        printf("%f\n", ADSR_nextSample(adsr) * SinewaveGenerator_nextSample(gen));
     }
 
     SinewaveGenerator_destroy(gen);
