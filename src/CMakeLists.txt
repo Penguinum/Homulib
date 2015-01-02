@@ -11,6 +11,8 @@ set(SOURCE_LIB
     SinusGenerator.cpp
     TriangleGenerator.cpp
     WhiteNoiseGenerator.cpp
+    cwrapper.cpp
 )
 
-add_library(homulib SHARED ${SOURCE_LIB})
+add_library(homulib-shared SHARED ${SOURCE_LIB})
+add_library(homulib-static STATIC ${SOURCE_LIB})
