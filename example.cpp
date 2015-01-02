@@ -1,11 +1,11 @@
 #include <stdio.h>
-#include "SinusGenerator.h"
+#include "SinewaveGenerator.h"
 #include "ADSR.h"
 
 int main() {
     const size_t sample_rate = 41000;
     // create and init sinewave generator 
-    homu::SinusGenerator g(sample_rate);
+    homu::SinewaveGenerator g(sample_rate);
     // create and init adsr effect
     homu::ADSR adsr(sample_rate);
     // set parameters

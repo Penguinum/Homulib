@@ -1,26 +1,26 @@
 #include "cwrapper.h"
-#include "SinusGenerator.h"
+#include "SinewaveGenerator.h"
 #include "ADSR.h"
 
 // Sinewave section
 
-void *SinusGenerator_create(size_t sample_rate) {
-    homu::SinusGenerator *gen = new homu::SinusGenerator(sample_rate);
+void *SinewaveGenerator_create(size_t sample_rate) {
+    homu::SinewaveGenerator *gen = new homu::SinewaveGenerator(sample_rate);
     return static_cast<void*>(gen);
 }
 
-void SinusGenerator_destroy(void *v) {
-    homu::SinusGenerator *gen = static_cast<homu::SinusGenerator*>(v);
+void SinewaveGenerator_destroy(void *v) {
+    homu::SinewaveGenerator *gen = static_cast<homu::SinewaveGenerator*>(v);
     delete gen;
 }
 
-void SinusGenerator_start(void *v, float freq) {
-    homu::SinusGenerator *gen = static_cast<homu::SinusGenerator*>(v);
+void SinewaveGenerator_start(void *v, float freq) {
+    homu::SinewaveGenerator *gen = static_cast<homu::SinewaveGenerator*>(v);
     gen->start(freq);
 }
 
-float SinusGenerator_nextSample(void *v) {
-    homu::SinusGenerator *gen = static_cast<homu::SinusGenerator*>(v);
+float SinewaveGenerator_nextSample(void *v) {
+    homu::SinewaveGenerator *gen = static_cast<homu::SinewaveGenerator*>(v);
     return gen->nextSample();
 }
 

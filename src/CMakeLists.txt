@@ -8,11 +8,11 @@ set(SOURCE_LIB
     KarplusStrongGenerator.cpp
     PinkNoiseGenerator.cpp
     ringbuffer.cpp
-    SinusGenerator.cpp
+    SinewaveGenerator.cpp
     TriangleGenerator.cpp
     WhiteNoiseGenerator.cpp
     cwrapper.cpp
 )
 
-add_library(homulib-shared SHARED ${SOURCE_LIB})
+add_library(homulib SHARED ${SOURCE_LIB})
 add_library(homulib-static STATIC ${SOURCE_LIB})

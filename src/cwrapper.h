@@ -8,10 +8,10 @@ extern "C"
 {
 #endif
 
-void *SinusGenerator_create     (size_t sample_rate);
-void  SinusGenerator_destroy    (void *v);
-void  SinusGenerator_start      (void *v, float freq);
-float SinusGenerator_nextSample (void *v);
+void *SinewaveGenerator_create     (size_t sample_rate);
+void  SinewaveGenerator_destroy    (void *v);
+void  SinewaveGenerator_start      (void *v, float freq);
+float SinewaveGenerator_nextSample (void *v);
 
 void *ADSR_create        (size_t sample_rate);
 void  ADSR_destroy       (void *v);

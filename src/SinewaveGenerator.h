@@ -1,7 +1,7 @@
 /*
   ==============================================================================
 
-    SinusGenerator.h
+    SinewaveGenerator.h
     Created: 08 Dec 2014 00:29 pm
     Author:  Penguinum-tea
 
@@ -18,9 +18,9 @@
 
 namespace homu {
 
-class SinusGenerator : public Generator {
+class SinewaveGenerator : public Generator {
 public:
-    SinusGenerator(size_t sr) : Generator(sr) {}
+    SinewaveGenerator(size_t sr) : Generator(sr) {}
     virtual float nextSample();
 };
 

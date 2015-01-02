@@ -9,4 +9,4 @@ add_executable(example-c example.c)
 add_executable(example-cpp example.cpp)
 
 target_link_libraries(example-cpp homulib-static)
-target_link_libraries(example-c homulib-shared)
+target_link_libraries(example-c homulib)
