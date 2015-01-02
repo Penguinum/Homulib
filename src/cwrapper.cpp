@@ -1,6 +1,10 @@
 #define BUILD_THIS_LIB
 #include "cwrapper.h"
 #include "SinewaveGenerator.h"
+#include "KarplusStrongGenerator.h"
+#include "WhiteNoiseGenerator.h"
+#include "PinkNoiseGenerator.h"
+#include "BrownNoiseGenerator.h"
 #include "ADSR.h"
 
 // Sinewave section
@@ -25,6 +29,93 @@ float SinewaveGenerator_nextSample(void *v) {
     return gen->nextSample();
 }
 
+//Karplus-Strong section
+
+void *KarplusStrongGenerator_create(size_t sample_rate) {
+    homu::KarplusStrongGenerator *gen = new homu::KarplusStrongGenerator(sample_rate);
+    return static_cast<void*>(gen);
+}
+
+void KarplusStrongGenerator_destroy(void *v) {
+    homu::KarplusStrongGenerator *gen = static_cast<homu::KarplusStrongGenerator*>(v);
+    delete gen;
+}
+
+void KarplusStrongGenerator_start(void *v, float freq) {
+    homu::KarplusStrongGenerator *gen = static_cast<homu::KarplusStrongGenerator*>(v);
+    gen->start(freq);
+}
+
+float KarplusStrongGenerator_nextSample(void *v) {
+    homu::KarplusStrongGenerator *gen = static_cast<homu::KarplusStrongGenerator*>(v);
+    return gen->nextSample();
+}
+
+//White noise section
+
+void *WhiteNoiseGenerator_create(size_t sample_rate) {
+    homu::WhiteNoiseGenerator *gen = new homu::WhiteNoiseGenerator(sample_rate);
+    return static_cast<void*>(gen);
+}
+
+void WhiteNoiseGenerator_destroy(void *v) {
+    homu::WhiteNoiseGenerator *gen = static_cast<homu::WhiteNoiseGenerator*>(v);
+    delete gen;
+}
+
+void WhiteNoiseGenerator_start(void *v, float freq) {
+    homu::WhiteNoiseGenerator *gen = static_cast<homu::WhiteNoiseGenerator*>(v);
+    gen->start(freq);
+}
+
+float WhiteNoiseGenerator_nextSample(void *v) {
+    homu::WhiteNoiseGenerator *gen = static_cast<homu::WhiteNoiseGenerator*>(v);
+    return gen->nextSample();
+}
+
+//Pink noise section
+
+void *PinkNoiseGenerator_create(size_t sample_rate) {
+    homu::PinkNoiseGenerator *gen = new homu::PinkNoiseGenerator(sample_rate);
+    return static_cast<void*>(gen);
+}
+
+void PinkNoiseGenerator_destroy(void *v) {
+    homu::PinkNoiseGenerator *gen = static_cast<homu::PinkNoiseGenerator*>(v);
+    delete gen;
+}
+
+void PinkNoiseGenerator_start(void *v, float freq) {
+    homu::PinkNoiseGenerator *gen = static_cast<homu::PinkNoiseGenerator*>(v);
+    gen->start(freq);
+}
+
+float PinkNoiseGenerator_nextSample(void *v) {
+    homu::PinkNoiseGenerator *gen = static_cast<homu::PinkNoiseGenerator*>(v);
+    return gen->nextSample();
+}
+
+//Brown noise section
+
+void *BrownNoiseGenerator_create(size_t sample_rate) {
+    homu::BrownNoiseGenerator *gen = new homu::BrownNoiseGenerator(sample_rate);
+    return static_cast<void*>(gen);
+}
+
+void BrownNoiseGenerator_destroy(void *v) {
+    homu::BrownNoiseGenerator *gen = static_cast<homu::BrownNoiseGenerator*>(v);
+    delete gen;
+}
+
+void BrownNoiseGenerator_start(void *v, float freq) {
+    homu::BrownNoiseGenerator *gen = static_cast<homu::BrownNoiseGenerator*>(v);
+    gen->start(freq);
+}
+
+float BrownNoiseGenerator_nextSample(void *v) {
+    homu::BrownNoiseGenerator *gen = static_cast<homu::BrownNoiseGenerator*>(v);
+    return gen->nextSample();
+}
 
 // ADSR section
 
