@@ -3,7 +3,8 @@ project(homulib_and_examples)
 
 include_directories(src)
 add_subdirectory(src)
-set(CMAKE_C_FLAGS -std=c99)
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99 -Wall")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 
 add_executable(example-c example.c)
 add_executable(example-cpp example.cpp)
