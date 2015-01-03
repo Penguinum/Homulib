@@ -17,6 +17,7 @@ set(SOURCE_LIB
     ringbuffer.cpp
     SinewaveGenerator.cpp
     TriangleGenerator.cpp
+    SquareGenerator.cpp
     WhiteNoiseGenerator.cpp
     cwrapper.cpp
 )
