@@ -17,11 +17,19 @@
 
 namespace homu {
 
+void SquareGenerator::start(float freq) {
+    phase       = 0;
+    sample_num  = 0;
+    phase_delta = 2.0 * M_PI * freq / (float)sample_rate;
+}
+
 float SquareGenerator::nextSample() {
     if (phase >= TWO_M_PI) {
         phase -= TWO_M_PI;
     }
-    return (phase < M_PI) ? 1 : -1;
+    float sample = (phase < M_PI) ? 1 : -1;
+    phase += phase_delta;
+    return sample;
 }
 
 }

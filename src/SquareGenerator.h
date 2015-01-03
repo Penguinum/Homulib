@@ -19,9 +19,11 @@ namespace homu {
 class SquareGenerator : public Generator {
 private:
     float phase;
+    float phase_delta;
 
 public:
     SquareGenerator(size_t sr) : Generator(sr) {}
+    virtual void start(float freq);
     virtual float nextSample();
 };
 
