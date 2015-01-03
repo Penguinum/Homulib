@@ -23,6 +23,12 @@ MODULE_API void  SinewaveGenerator_destroy    (void *v);
 MODULE_API void  SinewaveGenerator_start      (void *v, float freq);
 MODULE_API float SinewaveGenerator_nextSample (void *v);
 
+MODULE_API void *TriangleGenerator_create     (size_t sample_rate);
+MODULE_API void  TriangleGenerator_destroy    (void *v);
+MODULE_API void  TriangleGenerator_start      (void *v, float freq);
+MODULE_API float TriangleGenerator_nextSample (void *v);
+MODULE_API void  TriangleGenerator_setWidth   (float w);
+
 MODULE_API void *KarplusStrongGenerator_create     (size_t sample_rate);
 MODULE_API void  KarplusStrongGenerator_destroy    (void *v);
 MODULE_API void  KarplusStrongGenerator_start      (void *v, float freq);

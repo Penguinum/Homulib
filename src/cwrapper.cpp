@@ -1,6 +1,7 @@
 #define BUILD_THIS_LIB
 #include "cwrapper.h"
 #include "SinewaveGenerator.h"
+#include "TriangleGenerator.h"
 #include "KarplusStrongGenerator.h"
 #include "WhiteNoiseGenerator.h"
 #include "PinkNoiseGenerator.h"
@@ -27,6 +28,33 @@ void SinewaveGenerator_start(void *v, float freq) {
 float SinewaveGenerator_nextSample(void *v) {
     homu::SinewaveGenerator *gen = static_cast<homu::SinewaveGenerator*>(v);
     return gen->nextSample();
+}
+
+// Triangle section
+
+void *TriangleGenerator_create(size_t sample_rate) {
+    homu::TriangleGenerator *gen = new homu::TriangleGenerator(sample_rate);
+    return static_cast<void*>(gen);
+}
+
+void TriangleGenerator_destroy(void *v) {
+    homu::TriangleGenerator *gen = static_cast<homu::TriangleGenerator*>(v);
+    delete gen;
+}
+
+void TriangleGenerator_start(void *v, float freq) {
+    homu::TriangleGenerator *gen = static_cast<homu::TriangleGenerator*>(v);
+    gen->start(freq);
+}
+
+float TriangleGenerator_nextSample(void *v) {
+    homu::TriangleGenerator *gen = static_cast<homu::TriangleGenerator*>(v);
+    return gen->nextSample();
+}
+
+void TriangleGenerator_setWidth(void *v, float w) {
+    homu::TriangleGenerator *gen = static_cast<homu::TriangleGenerator*>(v);
+    gen->setWidth(w);
 }
 
 //Karplus-Strong section
