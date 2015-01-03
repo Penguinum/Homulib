@@ -14,13 +14,13 @@ namespace homu {
 
 void KarplusStrongGenerator::start(float freq) {
     Generator::start(freq);
-    buf.smartResize(int(sample_rate / frequency));
+    buf.smartResize((size_t)(sample_rate / frequency));
 }
 
 float KarplusStrongGenerator::nextSample() {
     float current_sample;
     if (sample_num < buf.size()) {
-        current_sample = rand() / float(RAND_MAX) * 2 - 1;
+        current_sample = rand() / (float)RAND_MAX * 2 - 1;
     } else {
         current_sample = 0.5 * (buf.getFromOffset(0) + buf.getFromOffset(1));
     }

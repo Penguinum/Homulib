@@ -13,7 +13,7 @@
 namespace homu {
 
 float Basegen::secondsPlayed() {
-    return float(sample_num) / float(sample_rate);
+    return sample_num / (float)sample_rate;
 }
 
 void Generator::start(float freq) {

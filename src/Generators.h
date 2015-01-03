@@ -31,7 +31,7 @@ protected:
     float frequency;
 
 public:
-    Generator(size_t sr) : Basegen(sr), frequency(200){}
+    Generator(size_t sr) : Basegen(sr), frequency(200) {}
     virtual float nextSample();
     virtual void start(float freq);
 };

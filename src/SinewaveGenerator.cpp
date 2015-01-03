@@ -17,7 +17,7 @@
 namespace homu {
 
 float SinewaveGenerator::nextSample() {
-    return std::sin((2*M_PI*frequency*(sample_num++))/(float(sample_rate)));
+    return std::sin((2*M_PI*frequency*(sample_num++))/((float)sample_rate));
 }
 
 }

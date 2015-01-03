@@ -18,13 +18,13 @@ void ADSR::start() {
     sample_num = 0;
 }
 
-void ADSR::setAttack(float a) { attack = int(a * sample_rate); }
+void ADSR::setAttack(float a) { attack = size_t(a * sample_rate); }
 
-void ADSR::setDecay(float d) { decay = int(d * sample_rate); }
+void ADSR::setDecay(float d) { decay = size_t(d * sample_rate); }
 
 void ADSR::setSustain(float s) { sustain = s; }
 
-void ADSR::setRelease(float r) { release = int(r * sample_rate); }
+void ADSR::setRelease(float r) { release = size_t(r * sample_rate); }
 
 float ADSR::nextSample() {
     const int cur_state = state;
@@ -61,7 +61,7 @@ float ADSR::nextSample() {
             state++;
         } else {
             last_value = release_max -
-                         release_max * float(current_sample) / float(release);
+                         release_max * current_sample / (float)release;
             if (current_sample >= release) {
                 state = finalState;
             }

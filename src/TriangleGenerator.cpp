@@ -18,7 +18,7 @@ void TriangleGenerator::start(float freq) {
     frequency = freq;
     phase = M_PI * 0.5;
     sample_num = 0;
-    phase_delta = 2.0 * M_PI * frequency /float(sample_rate);
+    phase_delta = 2.0 * M_PI * frequency / (float)sample_rate;
     coef_up = 2.0 / M_PI;
     coef_down = - 2.0 / M_PI;
 }
