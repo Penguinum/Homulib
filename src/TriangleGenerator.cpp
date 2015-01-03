@@ -15,25 +15,30 @@
 namespace homu {
 
 void TriangleGenerator::start(float freq) {
-    frequency = freq;
-    phase = M_PI * 0.5;
-    sample_num = 0;
+    frequency   = freq;
+    phase       = 2 * M_PI - w_up;
+    sample_num  = 0;
     phase_delta = 2.0 * M_PI * frequency / (float)sample_rate;
-    coef_up = 2.0 / M_PI;
-    coef_down = - 2.0 / M_PI;
+    w_up        = M_PI * width;
+    w_down      = M_PI * (1 - width);
 }
 
 float TriangleGenerator::nextSample() {
     if (phase >= 2 * M_PI) {
         phase -= 2 * M_PI;
     }
-    sample_num++;
     phase += phase_delta;
-    if (phase < M_PI) {
-        return 1 + coef_down * phase;
+    if (phase < 2 * w_down) {
+        return 1 - phase / w_down;
     } else {
-        return - 1 + coef_up * (phase - M_PI);
+        return - 1 + (phase - M_PI) / w_up;
     }
+}
+
+void TriangleGenerator::setWidth(float w) {
+    width = w;
+    w_up        = M_PI * width;
+    w_down      = M_PI * (1 - width);
 }
 
 }

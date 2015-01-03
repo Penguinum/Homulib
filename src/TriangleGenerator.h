@@ -18,15 +18,31 @@ namespace homu {
 
 class TriangleGenerator : public Generator {
 private:
+    /*
+    Sort of explanation.
+    1        /\
+    |      /    \
+    |    /       \
+    |  /           \
+    0/________._____\Pi______._______2*Pi
+    | w_up     w_down \w_down w_up   /
+    |                  \           /
+    |                    \       /
+    |                     \    /
+    -1                      \/
+    */
     float phase;
     float phase_delta;
-    float coef_up, coef_down;
+    float w_up, w_down; // width1 + width2 = Pi
+    float width; // width = width1 / Pi
 
 public:
     TriangleGenerator(size_t sr)
-        : Generator(sr), phase(0), phase_delta(0), coef_up(0), coef_down(0) {}
+        : Generator(sr), phase(0), phase_delta(0),
+        w_up(0), w_down(0), width(0.5) {}
     virtual float nextSample();
     virtual void start(float freq);
+    void setWidth(float width);
 };
 
 }
