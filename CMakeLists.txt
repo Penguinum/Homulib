@@ -14,6 +14,10 @@ add_subdirectory(src)
 
 add_executable(example-c example.c)
 add_executable(example-cpp example.cpp)
+add_executable(sinewave-test-cpp ./tests/SinewaveTest.cpp)
+add_executable(triangle-test-cpp ./tests/TriangleTest.cpp)
 
 target_link_libraries(example-cpp homulib-static)
 target_link_libraries(example-c homulib)
+target_link_libraries(sinewave-test-cpp homulib-static)
+target_link_libraries(triangle-test-cpp homulib-static)
