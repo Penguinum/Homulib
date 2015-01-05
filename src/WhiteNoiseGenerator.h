@@ -16,12 +16,18 @@
 
 namespace homu {
 
+/**
+ * Generator that produces white noise.
+ */
 class WhiteNoiseGenerator : public Generator {
-
 public:
     WhiteNoiseGenerator(size_t sr)
         : Generator(sr) {}
     virtual float nextSample();
+    /**
+     * Start generator.
+     * @param freq is useless here for now.
+     */
     virtual void start(float freq);
 };
 

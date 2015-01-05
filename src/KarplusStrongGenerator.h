@@ -17,14 +17,18 @@
 
 namespace homu {
 
+/**
+ * Generator that use Karplus-Strong algorithm to create
+ * sound similar to guitar string.
+ */
 class KarplusStrongGenerator : public Generator {
 private:
     RingBuffer buf;
 
 public:
     KarplusStrongGenerator(size_t sr) : Generator(sr) {}
-    virtual void start(float freq);
     virtual float nextSample();
+    virtual void start(float freq);
 };
 
 }

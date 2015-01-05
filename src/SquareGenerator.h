@@ -16,6 +16,9 @@
 
 namespace homu {
 
+/**
+ * Generator that produces a triangle wave.
+ */
 class SquareGenerator : public Generator {
 private:
     float phase;

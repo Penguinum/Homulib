@@ -16,6 +16,9 @@
 
 namespace homu {
 
+/**
+ * Generator that produces pink noise.
+ */
 class PinkNoiseGenerator : public Generator {
 private:
     float last_value;
@@ -26,6 +29,10 @@ public:
         : Generator(sr), last_value(0),
         b0(0), b1(0), b2(0), b3(0), b4(0), b5(0), b6(0) {}
     virtual float nextSample();
+    /**
+     * Start generator.
+     * @param freq is useless here for now.
+     */
     virtual void start(float freq);
 };
 

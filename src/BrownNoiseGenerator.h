@@ -16,6 +16,9 @@
 
 namespace homu {
 
+/**
+ * Generator that produces brownian noise.
+ */
 class BrownNoiseGenerator : public Generator {
 private:
     float last_value;
@@ -24,6 +27,10 @@ public:
     BrownNoiseGenerator(size_t sr)
         : Generator(sr), last_value(0) {}
     virtual float nextSample();
+    /**
+     * Start generator.
+     * @param freq is useless here for now.
+     */
     virtual void start(float freq);
 };
 

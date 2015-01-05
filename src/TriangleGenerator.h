@@ -16,21 +16,24 @@
 
 namespace homu {
 
+/**
+ * Generator that produces a triangle wave.
+   @verbatim
+   Sort of explanation.
+   1        /\
+   |      /    \
+   |    /       \
+   |  /           \
+   0/________._____\Pi______._______2*Pi
+   | w_up     w_down \w_down w_up   /
+   |                  \           /
+   |                    \       /
+   |                     \    /
+   -1                      \/
+   @endverbatim
+ */
 class TriangleGenerator : public Generator {
 private:
-    /*
-    Sort of explanation.
-    1        /\
-    |      /    \
-    |    /       \
-    |  /           \
-    0/________._____\Pi______._______2*Pi
-    | w_up     w_down \w_down w_up   /
-    |                  \           /
-    |                    \       /
-    |                     \    /
-    -1                      \/
-    */
     float phase;
     float phase_delta;
     float w_up, w_down; // width1 + width2 = Pi

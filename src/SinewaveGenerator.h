@@ -8,8 +8,6 @@
   ==============================================================================
 */
 
-// This generator is surely useless, but I think it must be here.
-
 #ifndef SINUS_GENERATOR_H
 #define SINUS_GENERATOR_H
 
@@ -18,6 +16,10 @@
 
 namespace homu {
 
+/**
+ * Generator that produces a sinewave.
+ * This generator is surely useless, but I think it must be here.
+ */
 class SinewaveGenerator : public Generator {
 public:
     SinewaveGenerator(size_t sr) : Generator(sr) {}
