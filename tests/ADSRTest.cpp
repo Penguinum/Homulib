@@ -11,11 +11,41 @@ int main() {
     adsr.setSustain(1);
     adsr.setRelease(0);
     adsr.start();
-    for (int i = 0; i < 10000; ++i) {
+    for (int i = 0; i < 1000; ++i) {
         float s = adsr.nextSample();
-        if (i >= 5000) {
+        if (i >= 500) {
             adsr.stopSustain();
         }
+        if (s > 1 || s < -1) {
+            cerr << "Warning: s = " << s << endl;
+        }
+        cout << s << endl;
+    }
+
+    adsr.setAttack(0.1);
+    adsr.setDecay(0.2);
+    adsr.setSustain(0.7);
+    adsr.setRelease(0.3);
+    adsr.start();
+    while (true) {
+        if (adsr.secondsPlayed() >= 0.5) { adsr.stopSustain(); }
+        if (adsr.finished()) { break; }
+        float s = adsr.nextSample();
+        if (s > 1 || s < -1) {
+            cerr << "Warning: s = " << s << endl;
+        }
+        cout << s << endl;
+    }
+
+    adsr.setAttack(0.1);
+    adsr.setDecay(0.2);
+    adsr.setSustain(0.7);
+    adsr.setRelease(0.3);
+    adsr.start();
+    while (true) {
+        if (adsr.secondsPlayed() >= 0.05) { adsr.stopSustain(); }
+        if (adsr.finished()) { break; }
+        float s = adsr.nextSample();
         if (s > 1 || s < -1) {
             cerr << "Warning: s = " << s << endl;
         }
