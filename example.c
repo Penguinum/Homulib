@@ -2,10 +2,11 @@
 #include "src/cwrapper.h"
 
 int main() {
+    size_t sample_rate = 44100;
     // Create and init sinewave generator.
-    void *gen = SinewaveGenerator_Create(41000);
+    void *gen = SinewaveGenerator_Create(sample_rate);
     // Create and init adsr effect.
-    void *adsr = ADSR_Create(41000);
+    void *adsr = ADSR_Create(sample_rate);
     // Set parameters.
     ADSR_SetAttack(adsr, 0.2);
     ADSR_SetDecay(adsr, 0.3);
