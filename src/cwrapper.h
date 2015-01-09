@@ -61,6 +61,13 @@ MODULE_API int   ADSR_Finished      (void *v);
 MODULE_API float ADSR_SecondsPlayed (void *v);
 MODULE_API void  ADSR_StopSustain   (void *v);
 
+MODULE_API void *Delay_Create     (size_t sample_rate);
+MODULE_API void  Delay_Destroy    (void *v);
+MODULE_API void  Delay_Start      (void *v);
+MODULE_API float Delay_NextSample (void *v, float s);
+MODULE_API void  Delay_SetSize    (void *v, float s);
+MODULE_API void  Delay_SetDecay   (void *v, float s);
+
 #ifdef __cplusplus
 }
 #endif

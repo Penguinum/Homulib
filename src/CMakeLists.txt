@@ -19,6 +19,7 @@ set(SOURCE_LIB
     TriangleGenerator.cpp
     SquareGenerator.cpp
     WhiteNoiseGenerator.cpp
+    Delay.cpp
     cwrapper.cpp
 )
 

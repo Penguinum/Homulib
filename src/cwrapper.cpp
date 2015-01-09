@@ -7,6 +7,7 @@
 #include "PinkNoiseGenerator.h"
 #include "BrownNoiseGenerator.h"
 #include "ADSR.h"
+#include "Delay.h"
 
 // Sinewave section
 
@@ -202,3 +203,36 @@ void ADSR_StopSustain(void *v) {
     gen->stopSustain();
 }
 
+
+// Reverb section
+
+
+void *Delay_Create (size_t sample_rate) {
+    homu::Delay *gen = new homu::Delay(sample_rate);
+    return static_cast<void*>(gen);
+}
+
+void  Delay_Destroy (void *v) {
+    homu::Delay *gen = static_cast<homu::Delay*>(v);
+    delete gen;
+}
+
+void  Delay_Start (void *v) {
+    homu::Delay *gen = static_cast<homu::Delay*>(v);
+    gen->start();
+}
+
+float  Delay_NextSample (void *v, float value) {
+    homu::Delay *gen = static_cast<homu::Delay*>(v);
+    return gen->nextSample(value);
+}
+
+void Delay_SetSize (void *v, float value) {
+    homu::Delay *gen = static_cast<homu::Delay*>(v);
+    gen->setSize(value);
+}
+
+void Delay_SetDecay (void *v, float value) {
+    homu::Delay *gen = static_cast<homu::Delay*>(v);
+    gen->setDecay(value);
+}
