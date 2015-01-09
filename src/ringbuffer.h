@@ -19,7 +19,7 @@ namespace homu {
 /**
  * Class that implements ring buffer.
  */
-class RingBuffer : public std::vector<float> {
+class RingBuffer : public std::vector<double> {
 private:
     size_t currentPos, buf_size;
 
@@ -30,17 +30,17 @@ public:
      * this method will return sample with numver j + i
      * @param i is an offset.
      */
-    float getFromOffset(int i);
+    double getFromOffset(int i);
     /**
-     * Fill all samples in buffer with float number f.
+     * Fill all samples in buffer with double number f.
      * @param f is a number to fill ring buffer.
      */
-    void fill(float f);
+    void fill(double f);
     /**
      * Pushes sample f into current sample and rotates buffer.
      * @param f is a number that will be written into current position.
      */
-    void apply(float f);
+    void apply(double f);
     /**
      * Resize buffer and reinit some variables.
      * @param N is a new buffer size.

@@ -18,22 +18,22 @@ void ADSR::start() {
     sample_num = 0;
 }
 
-void ADSR::setAttack(float a) { attack = size_t(a * sample_rate); }
+void ADSR::setAttack(double a) { attack = size_t(a * sample_rate); }
 
-void ADSR::setDecay(float d) { decay = size_t(d * sample_rate); }
+void ADSR::setDecay(double d) { decay = size_t(d * sample_rate); }
 
-void ADSR::setSustain(float s) { sustain = s; }
+void ADSR::setSustain(double s) { sustain = s; }
 
-void ADSR::setRelease(float r) { release = size_t(r * sample_rate); }
+void ADSR::setRelease(double r) { release = size_t(r * sample_rate); }
 
-float ADSR::nextSample() {
+double ADSR::nextSample() {
     const int cur_state = state;
     switch (cur_state) {
     case attackState:
         if (attack == 0) {
             state++;
         } else {
-            last_value = float(current_sample) / float(attack);
+            last_value = double(current_sample) / double(attack);
             if (current_sample >= attack) {
                 state++;
                 current_sample = 0;
@@ -45,7 +45,7 @@ float ADSR::nextSample() {
             state++;
         } else {
             last_value =
-                1 - (1 - sustain) * float(current_sample) / float(decay);
+                1 - (1 - sustain) * double(current_sample) / double(decay);
             if (current_sample >= decay) {
                 state++;
                 current_sample = 0;
@@ -61,7 +61,7 @@ float ADSR::nextSample() {
             state++;
         } else {
             last_value = release_max -
-                         release_max * current_sample / (float)release;
+                         release_max * current_sample / (double)release;
             if (current_sample >= release) {
                 state = finalState;
             }
@@ -74,10 +74,6 @@ float ADSR::nextSample() {
     current_sample++;
     sample_num++;
     return last_value;
-}
-
-float ADSR::nextSample(float s) {
-    return s * nextSample();
 }
 
 void ADSR::stopSustain() {

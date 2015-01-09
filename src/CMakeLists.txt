@@ -10,15 +10,15 @@ endif()
 
 set(SOURCE_LIB  
     ADSR.cpp
-    BrownNoiseGenerator.cpp
+    BrownNoise.cpp
     Generators.cpp
-    KarplusStrongGenerator.cpp
-    PinkNoiseGenerator.cpp
+    KarplusStrong.cpp
+    PinkNoise.cpp
     ringbuffer.cpp
-    SinewaveGenerator.cpp
-    TriangleGenerator.cpp
-    SquareGenerator.cpp
-    WhiteNoiseGenerator.cpp
+    Sinewave.cpp
+    Triangle.cpp
+    Square.cpp
+    WhiteNoise.cpp
     Delay.cpp
     cwrapper.cpp
 )

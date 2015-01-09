@@ -11,17 +11,17 @@
 #include "Delay.h"
 
 namespace homu {
-    void Delay::setSize(float v) {
+    void Delay::setSize(double v) {
         buffer.smartResize(v * sample_rate);
         buffer.fill(0);
     }
 
-    void Delay::setDecay(float v) {
+    void Delay::setDecay(double v) {
         decay = v;
     }
 
-    float Delay::nextSample(float v) {
-        float sample = 0.5 * (v + buffer.getFromOffset(0) * decay);
+    double Delay::nextSample(double v) {
+        double sample = 0.5 * (v + buffer.getFromOffset(0) * decay);
         buffer.apply(v);
         return sample;
     }

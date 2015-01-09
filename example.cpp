@@ -1,11 +1,11 @@
 #include <stdio.h>
-#include "src/SinewaveGenerator.h"
+#include "src/Sinewave.h"
 #include "src/ADSR.h"
 
 int main() {
     const size_t sample_rate = 44100;
     // Create and init sinewave generator.
-    homu::SinewaveGenerator g(sample_rate);
+    homu::Sinewave g(sample_rate);
     // Create and init adsr effect.
     homu::ADSR adsr(sample_rate);
     // Set parameters.
@@ -26,9 +26,7 @@ int main() {
         if (adsr.secondsPlayed() >= 0.7) {
             adsr.stopSustain();
         }
-        // we can use another form of it:
-        // float sample = adsr.nextSample * g.nextSample();
-        float sample = adsr.nextSample(g.nextSample());
+        double sample = adsr.nextSample() * g.nextSample();
         printf("%f\n", sample);
     }
     

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Homulib: ringbuffer.h Source File</title>
+<title>My Project: ringbuffer.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Homulib
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -100,15 +100,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>homu {</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classhomu_1_1RingBuffer.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classhomu_1_1RingBuffer.html">RingBuffer</a> : <span class="keyword">public</span> std::vector&lt;float&gt; {</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classhomu_1_1RingBuffer.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classhomu_1_1RingBuffer.html">RingBuffer</a> : <span class="keyword">public</span> std::vector&lt;double&gt; {</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">size_t</span> currentPos, buf_size;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classhomu_1_1RingBuffer.html">RingBuffer</a>() : currentPos(0), buf_size(1) {}</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classhomu_1_1RingBuffer.html#a08488752cb0923c8766229f2ee7a250c">getFromOffset</a>(<span class="keywordtype">int</span> i);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classhomu_1_1RingBuffer.html#a4b5ea56b5b18c92e6d944322a4229277">fill</a>(<span class="keywordtype">float</span> f);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classhomu_1_1RingBuffer.html#a3dbfc7f082dda0ca068b7ddb4cb7f2c5">apply</a>(<span class="keywordtype">float</span> f);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classhomu_1_1RingBuffer.html#a5e5223b04cfd8f2b730a0950a32013d2">getFromOffset</a>(<span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classhomu_1_1RingBuffer.html#a29d899c041c80956a1a23029659fa9e8">fill</a>(<span class="keywordtype">double</span> f);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classhomu_1_1RingBuffer.html#a88d6347de2b447faf82e54b3667b1593">apply</a>(<span class="keywordtype">double</span> f);</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classhomu_1_1RingBuffer.html#a3683d8c261aae85763c3c32c5736a509">smartResize</a>(<span class="keywordtype">size_t</span> N);</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
@@ -116,14 +116,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="classhomu_1_1RingBuffer_html_a3683d8c261aae85763c3c32c5736a509"><div class="ttname"><a href="classhomu_1_1RingBuffer.html#a3683d8c261aae85763c3c32c5736a509">homu::RingBuffer::smartResize</a></div><div class="ttdeci">void smartResize(size_t N)</div><div class="ttdef"><b>Definition:</b> ringbuffer.cpp:41</div></div>
-<div class="ttc" id="classhomu_1_1RingBuffer_html_a08488752cb0923c8766229f2ee7a250c"><div class="ttname"><a href="classhomu_1_1RingBuffer.html#a08488752cb0923c8766229f2ee7a250c">homu::RingBuffer::getFromOffset</a></div><div class="ttdeci">float getFromOffset(int i)</div><div class="ttdef"><b>Definition:</b> ringbuffer.cpp:16</div></div>
-<div class="ttc" id="classhomu_1_1RingBuffer_html_a3dbfc7f082dda0ca068b7ddb4cb7f2c5"><div class="ttname"><a href="classhomu_1_1RingBuffer.html#a3dbfc7f082dda0ca068b7ddb4cb7f2c5">homu::RingBuffer::apply</a></div><div class="ttdeci">void apply(float f)</div><div class="ttdef"><b>Definition:</b> ringbuffer.cpp:32</div></div>
-<div class="ttc" id="classhomu_1_1RingBuffer_html_a4b5ea56b5b18c92e6d944322a4229277"><div class="ttname"><a href="classhomu_1_1RingBuffer.html#a4b5ea56b5b18c92e6d944322a4229277">homu::RingBuffer::fill</a></div><div class="ttdeci">void fill(float f)</div><div class="ttdef"><b>Definition:</b> ringbuffer.cpp:26</div></div>
+<div class="ttc" id="classhomu_1_1RingBuffer_html_a88d6347de2b447faf82e54b3667b1593"><div class="ttname"><a href="classhomu_1_1RingBuffer.html#a88d6347de2b447faf82e54b3667b1593">homu::RingBuffer::apply</a></div><div class="ttdeci">void apply(double f)</div><div class="ttdef"><b>Definition:</b> ringbuffer.cpp:32</div></div>
+<div class="ttc" id="classhomu_1_1RingBuffer_html_a29d899c041c80956a1a23029659fa9e8"><div class="ttname"><a href="classhomu_1_1RingBuffer.html#a29d899c041c80956a1a23029659fa9e8">homu::RingBuffer::fill</a></div><div class="ttdeci">void fill(double f)</div><div class="ttdef"><b>Definition:</b> ringbuffer.cpp:26</div></div>
+<div class="ttc" id="classhomu_1_1RingBuffer_html_a5e5223b04cfd8f2b730a0950a32013d2"><div class="ttname"><a href="classhomu_1_1RingBuffer.html#a5e5223b04cfd8f2b730a0950a32013d2">homu::RingBuffer::getFromOffset</a></div><div class="ttdeci">double getFromOffset(int i)</div><div class="ttdef"><b>Definition:</b> ringbuffer.cpp:16</div></div>
 <div class="ttc" id="classhomu_1_1RingBuffer_html"><div class="ttname"><a href="classhomu_1_1RingBuffer.html">homu::RingBuffer</a></div><div class="ttdef"><b>Definition:</b> ringbuffer.h:22</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 5 2015 14:43:41 for Homulib by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jan 9 2015 22:08:39 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -17,17 +17,17 @@
 namespace homu {
 
 /**
- * Envelope effect. Can also be used as generator.
+ * ADSR envelope. Can also be used as generator.
  */
-class ADSR : public Effect {
+class ADSR : public Envelope {
 private:
     size_t attack;
     size_t decay;
-    float sustain;
+    double sustain;
     size_t release;
     int state;
     size_t current_sample;
-    float last_value, release_max;
+    double last_value, release_max;
 
 public:
     enum States {
@@ -38,39 +38,34 @@ public:
         finalState
     };
     ADSR(size_t sr)
-        : Effect(sr), attack(1), decay(1), sustain(1), release(1),
+        : Envelope(sr), attack(1), decay(1), sustain(1), release(1),
           state(attackState), current_sample(0), last_value(0), release_max(0) {}
     void start();
 
     /**
      * @param value is an attack time (in seconds)
      */
-    void setAttack(float value);
+    void setAttack(double value);
     /**
      * @param value is a decay time (in seconds)
      */
-    void setDecay(float value);
+    void setDecay(double value);
     /**
-     * @param value is a sustain (0 to 1 float)
+     * @param value is a sustain (0 to 1 double)
      */
-    void setSustain(float value);
+    void setSustain(double value);
     /**
      * @param value is a release time (in seconds)
      */
-    void setRelease(float value);
+    void setRelease(double value);
     /**
      * Stop sustain.
      */
     void stopSustain();
     /**
-     * Get next sample; effect-style.
-     * @param s is an input sample
-     */
-    float nextSample(float s);
-    /**
      * Get next sample; generator-style.
      */
-    float nextSample();
+    double nextSample();
     /**
      * Check is ADSR finished.
      */

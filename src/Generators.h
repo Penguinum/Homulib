@@ -27,7 +27,6 @@ protected:
 public:
     Basegen(size_t sr) : sample_rate(sr), sample_num(0) {}
     virtual ~Basegen() {}
-    float secondsPlayed();
 };
 
 /**
@@ -36,19 +35,19 @@ public:
  */
 class Generator : public Basegen {
 protected:
-    float frequency;
+    double frequency;
 
 public:
     Generator(size_t sr) : Basegen(sr), frequency(200) {}
     /**
      * Get next sample.
      */
-    virtual float nextSample();
+    virtual double nextSample();
     /**
      * Start generator.
      * @param freq is a desired frequency.
      */
-    virtual void start(float freq);
+    virtual void start(double freq);
 };
 
 /**
@@ -61,11 +60,32 @@ public:
     /**
      * Get next sample
      */
-    virtual float nextSample(float current_sample);
+    virtual double nextSample(double current_sample);
     /**
      * Start generator.
      */
     virtual void start();
+};
+
+/**
+ * Base class for things like ADSR envelope.
+ * Envelopes don't have input samples.
+ */
+class Envelope : public Basegen {
+protected:
+    double frequency;
+
+public:
+    Envelope(size_t sr) : Basegen(sr) {}
+    /**
+     * Get next sample.
+     */
+    virtual double nextSample();
+    /**
+     * Start generator.
+     */
+    virtual void start();
+    double secondsPlayed();
 };
 
 }

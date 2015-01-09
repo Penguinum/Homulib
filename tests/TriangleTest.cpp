@@ -1,10 +1,10 @@
 #include <iostream>
-#include "../src/TriangleGenerator.h"
+#include "../src/Triangle.h"
 
 using namespace std;
 
 int main() {
-    homu::TriangleGenerator gen(10000);
+    homu::Triangle gen(10000);
     gen.start(100);
     for (int i = 0; i < 10000; ++i) {
         float s = gen.nextSample();

@@ -4,7 +4,7 @@
 int main() {
     size_t sample_rate = 44100;
     // Create and init sinewave generator.
-    void *gen = SinewaveGenerator_Create(sample_rate);
+    void *gen = Sinewave_Create(sample_rate);
     // Create and init adsr effect.
     void *adsr = ADSR_Create(sample_rate);
     // Set parameters.
@@ -14,7 +14,7 @@ int main() {
     ADSR_SetRelease(adsr, 0.5);
 
     // Start producing sinewave with frequency 150 Hz.
-    SinewaveGenerator_Start(gen, 150);
+    Sinewave_Start(gen, 150);
 
     // Start ADSR.
     ADSR_Start(adsr);
@@ -25,10 +25,10 @@ int main() {
         if (ADSR_SecondsPlayed(adsr) >= 0.7) {
             ADSR_StopSustain(adsr);
         }
-        printf("%f\n", ADSR_NextSample(adsr) * SinewaveGenerator_NextSample(gen));
+        printf("%f\n", ADSR_NextSample(adsr) * Sinewave_NextSample(gen));
     }
 
-    SinewaveGenerator_Destroy(gen);
+    Sinewave_Destroy(gen);
     ADSR_Destroy(adsr);
     return 0;
 }

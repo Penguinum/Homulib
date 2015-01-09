@@ -13,7 +13,7 @@
 
 namespace homu {
 
-float RingBuffer::getFromOffset(int i) {
+double RingBuffer::getFromOffset(int i) {
     if ((int)currentPos + i < 0) {
         return at(buf_size + i - currentPos);
     } else if (currentPos + i >= buf_size) {
@@ -23,13 +23,13 @@ float RingBuffer::getFromOffset(int i) {
     }
 }
 
-void RingBuffer::fill(float f) {
+void RingBuffer::fill(double f) {
     for (size_t i = 0; i < buf_size; i++) {
         (*this)[i] = f;
     }
 }
 
-void RingBuffer::apply(float f) {
+void RingBuffer::apply(double f) {
     (*this)[currentPos] = f;
     if (currentPos == buf_size - 1) {
         currentPos = 0;

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['karplusstronggenerator',['KarplusStrongGenerator',['../classhomu_1_1KarplusStrongGenerator.html',1,'homu']]]
+  ['generator',['Generator',['../classhomu_1_1Generator.html',1,'homu']]]
 ];

@@ -19,13 +19,13 @@ namespace homu {
 class Delay : public Effect {
 private:
     RingBuffer buffer;
-    float decay;
+    double decay;
 
 public:
     Delay(size_t sr) : Effect(sr), decay(0.5) {}
-    void  setSize   (float v);
-    void  setDecay  (float v);
-    float nextSample(float v);
+    void  setSize   (double v);
+    void  setDecay  (double v);
+    double nextSample(double v);
 };
 
 }

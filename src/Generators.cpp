@@ -12,11 +12,7 @@
 
 namespace homu {
 
-float Basegen::secondsPlayed() {
-    return sample_num / (float)sample_rate;
-}
-
-void Generator::start(float freq) {
+void Generator::start(double freq) {
     frequency = freq;
     sample_num = 0;
 }
@@ -25,12 +21,24 @@ void Effect::start() {
     sample_num = 0;
 }
 
-float Generator::nextSample() {
+double Generator::nextSample() {
     return 0;
 }
 
-float Effect::nextSample(float current_sample) {
+double Effect::nextSample(double current_sample) {
     return current_sample;
+}
+
+void Envelope::start() {
+    sample_num = 0;
+}
+
+double Envelope::nextSample() {
+    return 1;
+}
+
+double Envelope::secondsPlayed() {
+    return sample_num / (double)sample_rate;
 }
 
 }

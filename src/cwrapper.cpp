@@ -1,148 +1,148 @@
 #define BUILD_THIS_LIB
 #include "cwrapper.h"
-#include "SinewaveGenerator.h"
-#include "TriangleGenerator.h"
-#include "KarplusStrongGenerator.h"
-#include "WhiteNoiseGenerator.h"
-#include "PinkNoiseGenerator.h"
-#include "BrownNoiseGenerator.h"
+#include "Sinewave.h"
+#include "Triangle.h"
+#include "KarplusStrong.h"
+#include "WhiteNoise.h"
+#include "PinkNoise.h"
+#include "BrownNoise.h"
 #include "ADSR.h"
 #include "Delay.h"
 
 // Sinewave section
 
-void *SinewaveGenerator_Create(size_t sample_rate) {
-    homu::SinewaveGenerator *gen = new homu::SinewaveGenerator(sample_rate);
+void *Sinewave_Create(size_t sample_rate) {
+    homu::Sinewave *gen = new homu::Sinewave(sample_rate);
     return static_cast<void*>(gen);
 }
 
-void SinewaveGenerator_Destroy(void *v) {
-    homu::SinewaveGenerator *gen = static_cast<homu::SinewaveGenerator*>(v);
+void Sinewave_Destroy(void *v) {
+    homu::Sinewave *gen = static_cast<homu::Sinewave*>(v);
     delete gen;
 }
 
-void SinewaveGenerator_Start(void *v, float freq) {
-    homu::SinewaveGenerator *gen = static_cast<homu::SinewaveGenerator*>(v);
+void Sinewave_Start(void *v, double freq) {
+    homu::Sinewave *gen = static_cast<homu::Sinewave*>(v);
     gen->start(freq);
 }
 
-float SinewaveGenerator_NextSample(void *v) {
-    homu::SinewaveGenerator *gen = static_cast<homu::SinewaveGenerator*>(v);
+double Sinewave_NextSample(void *v) {
+    homu::Sinewave *gen = static_cast<homu::Sinewave*>(v);
     return gen->nextSample();
 }
 
 // Triangle section
 
-void *TriangleGenerator_Create(size_t sample_rate) {
-    homu::TriangleGenerator *gen = new homu::TriangleGenerator(sample_rate);
+void *Triangle_Create(size_t sample_rate) {
+    homu::Triangle *gen = new homu::Triangle(sample_rate);
     return static_cast<void*>(gen);
 }
 
-void TriangleGenerator_Destroy(void *v) {
-    homu::TriangleGenerator *gen = static_cast<homu::TriangleGenerator*>(v);
+void Triangle_Destroy(void *v) {
+    homu::Triangle *gen = static_cast<homu::Triangle*>(v);
     delete gen;
 }
 
-void TriangleGenerator_Start(void *v, float freq) {
-    homu::TriangleGenerator *gen = static_cast<homu::TriangleGenerator*>(v);
+void Triangle_Start(void *v, double freq) {
+    homu::Triangle *gen = static_cast<homu::Triangle*>(v);
     gen->start(freq);
 }
 
-float TriangleGenerator_NextSample(void *v) {
-    homu::TriangleGenerator *gen = static_cast<homu::TriangleGenerator*>(v);
+double Triangle_NextSample(void *v) {
+    homu::Triangle *gen = static_cast<homu::Triangle*>(v);
     return gen->nextSample();
 }
 
-void TriangleGenerator_SetWidth(void *v, float w) {
-    homu::TriangleGenerator *gen = static_cast<homu::TriangleGenerator*>(v);
+void Triangle_SetWidth(void *v, double w) {
+    homu::Triangle *gen = static_cast<homu::Triangle*>(v);
     gen->setWidth(w);
 }
 
 //Karplus-Strong section
 
-void *KarplusStrongGenerator_Create(size_t sample_rate) {
-    homu::KarplusStrongGenerator *gen = new homu::KarplusStrongGenerator(sample_rate);
+void *KarplusStrong_Create(size_t sample_rate) {
+    homu::KarplusStrong *gen = new homu::KarplusStrong(sample_rate);
     return static_cast<void*>(gen);
 }
 
-void KarplusStrongGenerator_Destroy(void *v) {
-    homu::KarplusStrongGenerator *gen = static_cast<homu::KarplusStrongGenerator*>(v);
+void KarplusStrong_Destroy(void *v) {
+    homu::KarplusStrong *gen = static_cast<homu::KarplusStrong*>(v);
     delete gen;
 }
 
-void KarplusStrongGenerator_Start(void *v, float freq) {
-    homu::KarplusStrongGenerator *gen = static_cast<homu::KarplusStrongGenerator*>(v);
+void KarplusStrong_Start(void *v, double freq) {
+    homu::KarplusStrong *gen = static_cast<homu::KarplusStrong*>(v);
     gen->start(freq);
 }
 
-float KarplusStrongGenerator_NextSample(void *v) {
-    homu::KarplusStrongGenerator *gen = static_cast<homu::KarplusStrongGenerator*>(v);
+double KarplusStrong_NextSample(void *v) {
+    homu::KarplusStrong *gen = static_cast<homu::KarplusStrong*>(v);
     return gen->nextSample();
 }
 
 //White noise section
 
-void *WhiteNoiseGenerator_Create(size_t sample_rate) {
-    homu::WhiteNoiseGenerator *gen = new homu::WhiteNoiseGenerator(sample_rate);
+void *WhiteNoise_Create(size_t sample_rate) {
+    homu::WhiteNoise *gen = new homu::WhiteNoise(sample_rate);
     return static_cast<void*>(gen);
 }
 
-void WhiteNoiseGenerator_Destroy(void *v) {
-    homu::WhiteNoiseGenerator *gen = static_cast<homu::WhiteNoiseGenerator*>(v);
+void WhiteNoise_Destroy(void *v) {
+    homu::WhiteNoise *gen = static_cast<homu::WhiteNoise*>(v);
     delete gen;
 }
 
-void WhiteNoiseGenerator_Start(void *v, float freq) {
-    homu::WhiteNoiseGenerator *gen = static_cast<homu::WhiteNoiseGenerator*>(v);
+void WhiteNoise_Start(void *v, double freq) {
+    homu::WhiteNoise *gen = static_cast<homu::WhiteNoise*>(v);
     gen->start(freq);
 }
 
-float WhiteNoiseGenerator_NextSample(void *v) {
-    homu::WhiteNoiseGenerator *gen = static_cast<homu::WhiteNoiseGenerator*>(v);
+double WhiteNoise_NextSample(void *v) {
+    homu::WhiteNoise *gen = static_cast<homu::WhiteNoise*>(v);
     return gen->nextSample();
 }
 
 //Pink noise section
 
-void *PinkNoiseGenerator_Create(size_t sample_rate) {
-    homu::PinkNoiseGenerator *gen = new homu::PinkNoiseGenerator(sample_rate);
+void *PinkNoise_Create(size_t sample_rate) {
+    homu::PinkNoise *gen = new homu::PinkNoise(sample_rate);
     return static_cast<void*>(gen);
 }
 
-void PinkNoiseGenerator_Destroy(void *v) {
-    homu::PinkNoiseGenerator *gen = static_cast<homu::PinkNoiseGenerator*>(v);
+void PinkNoise_Destroy(void *v) {
+    homu::PinkNoise *gen = static_cast<homu::PinkNoise*>(v);
     delete gen;
 }
 
-void PinkNoiseGenerator_Start(void *v, float freq) {
-    homu::PinkNoiseGenerator *gen = static_cast<homu::PinkNoiseGenerator*>(v);
+void PinkNoise_Start(void *v, double freq) {
+    homu::PinkNoise *gen = static_cast<homu::PinkNoise*>(v);
     gen->start(freq);
 }
 
-float PinkNoiseGenerator_NextSample(void *v) {
-    homu::PinkNoiseGenerator *gen = static_cast<homu::PinkNoiseGenerator*>(v);
+double PinkNoise_NextSample(void *v) {
+    homu::PinkNoise *gen = static_cast<homu::PinkNoise*>(v);
     return gen->nextSample();
 }
 
 //Brown noise section
 
-void *BrownNoiseGenerator_Create(size_t sample_rate) {
-    homu::BrownNoiseGenerator *gen = new homu::BrownNoiseGenerator(sample_rate);
+void *BrownNoise_Create(size_t sample_rate) {
+    homu::BrownNoise *gen = new homu::BrownNoise(sample_rate);
     return static_cast<void*>(gen);
 }
 
-void BrownNoiseGenerator_Destroy(void *v) {
-    homu::BrownNoiseGenerator *gen = static_cast<homu::BrownNoiseGenerator*>(v);
+void BrownNoise_Destroy(void *v) {
+    homu::BrownNoise *gen = static_cast<homu::BrownNoise*>(v);
     delete gen;
 }
 
-void BrownNoiseGenerator_Start(void *v, float freq) {
-    homu::BrownNoiseGenerator *gen = static_cast<homu::BrownNoiseGenerator*>(v);
+void BrownNoise_Start(void *v, double freq) {
+    homu::BrownNoise *gen = static_cast<homu::BrownNoise*>(v);
     gen->start(freq);
 }
 
-float BrownNoiseGenerator_NextSample(void *v) {
-    homu::BrownNoiseGenerator *gen = static_cast<homu::BrownNoiseGenerator*>(v);
+double BrownNoise_NextSample(void *v) {
+    homu::BrownNoise *gen = static_cast<homu::BrownNoise*>(v);
     return gen->nextSample();
 }
 
@@ -163,27 +163,27 @@ void ADSR_Start(void *v) {
     gen->start();
 }
 
-float ADSR_NextSample(void *v) {
+double ADSR_NextSample(void *v) {
     homu::ADSR *gen = static_cast<homu::ADSR*>(v);
     return gen->nextSample();
 }
 
-void ADSR_SetAttack(void *v, float a) {
+void ADSR_SetAttack(void *v, double a) {
     homu::ADSR *gen = static_cast<homu::ADSR*>(v);
     gen->setAttack(a);
 }
 
-void ADSR_SetDecay(void *v, float d) {
+void ADSR_SetDecay(void *v, double d) {
     homu::ADSR *gen = static_cast<homu::ADSR*>(v);
     gen->setDecay(d);
 }
 
-void ADSR_SetSustain(void *v, float s) {
+void ADSR_SetSustain(void *v, double s) {
     homu::ADSR *gen = static_cast<homu::ADSR*>(v);
     gen->setSustain(s);
 }
 
-void ADSR_SetRelease(void *v, float r) {
+void ADSR_SetRelease(void *v, double r) {
     homu::ADSR *gen = static_cast<homu::ADSR*>(v);
     gen->setRelease(r);
 }
@@ -193,7 +193,7 @@ int ADSR_Finished(void *v) {
     return gen->finished() ? 1 : 0;
 }
 
-float ADSR_SecondsPlayed(void *v) {
+double ADSR_SecondsPlayed(void *v) {
     homu::ADSR *gen = static_cast<homu::ADSR*>(v);
     return gen->secondsPlayed();
 }
@@ -222,17 +222,17 @@ void  Delay_Start (void *v) {
     gen->start();
 }
 
-float  Delay_NextSample (void *v, float value) {
+double  Delay_NextSample (void *v, double value) {
     homu::Delay *gen = static_cast<homu::Delay*>(v);
     return gen->nextSample(value);
 }
 
-void Delay_SetSize (void *v, float value) {
+void Delay_SetSize (void *v, double value) {
     homu::Delay *gen = static_cast<homu::Delay*>(v);
     gen->setSize(value);
 }
 
-void Delay_SetDecay (void *v, float value) {
+void Delay_SetDecay (void *v, double value) {
     homu::Delay *gen = static_cast<homu::Delay*>(v);
     gen->setDecay(value);
 }

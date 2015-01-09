@@ -18,55 +18,55 @@ extern "C"
 {
 #endif
 
-MODULE_API void *SinewaveGenerator_Create     (size_t sample_rate);
-MODULE_API void  SinewaveGenerator_Destroy    (void *v);
-MODULE_API void  SinewaveGenerator_Start      (void *v, float freq);
-MODULE_API float SinewaveGenerator_NextSample (void *v);
+MODULE_API void *Sinewave_Create     (size_t sample_rate);
+MODULE_API void  Sinewave_Destroy    (void *v);
+MODULE_API void  Sinewave_Start      (void *v, double freq);
+MODULE_API double Sinewave_NextSample (void *v);
 
-MODULE_API void *TriangleGenerator_Create     (size_t sample_rate);
-MODULE_API void  TriangleGenerator_Destroy    (void *v);
-MODULE_API void  TriangleGenerator_Start      (void *v, float freq);
-MODULE_API float TriangleGenerator_NextSample (void *v);
-MODULE_API void  TriangleGenerator_SetWidth   (void *v, float w);
+MODULE_API void *Triangle_Create     (size_t sample_rate);
+MODULE_API void  Triangle_Destroy    (void *v);
+MODULE_API void  Triangle_Start      (void *v, double freq);
+MODULE_API double Triangle_NextSample (void *v);
+MODULE_API void  Triangle_SetWidth   (void *v, double w);
 
-MODULE_API void *KarplusStrongGenerator_Create     (size_t sample_rate);
-MODULE_API void  KarplusStrongGenerator_Destroy    (void *v);
-MODULE_API void  KarplusStrongGenerator_Start      (void *v, float freq);
-MODULE_API float KarplusStrongGenerator_NextSample (void *v);
+MODULE_API void *KarplusStrong_Create     (size_t sample_rate);
+MODULE_API void  KarplusStrong_Destroy    (void *v);
+MODULE_API void  KarplusStrong_Start      (void *v, double freq);
+MODULE_API double KarplusStrong_NextSample (void *v);
 
-MODULE_API void *WhiteNoiseGenerator_Create     (size_t sample_rate);
-MODULE_API void  WhiteNoiseGenerator_Destroy    (void *v);
-MODULE_API void  WhiteNoiseGenerator_Start      (void *v, float freq);
-MODULE_API float WhiteNoiseGenerator_NextSample (void *v);
+MODULE_API void *WhiteNoise_Create     (size_t sample_rate);
+MODULE_API void  WhiteNoise_Destroy    (void *v);
+MODULE_API void  WhiteNoise_Start      (void *v, double freq);
+MODULE_API double WhiteNoise_NextSample (void *v);
 
-MODULE_API void *PinkNoiseGenerator_Create     (size_t sample_rate);
-MODULE_API void  PinkNoiseGenerator_Destroy    (void *v);
-MODULE_API void  PinkNoiseGenerator_Start      (void *v, float freq);
-MODULE_API float PinkNoiseGenerator_NextSample (void *v);
+MODULE_API void *PinkNoise_Create     (size_t sample_rate);
+MODULE_API void  PinkNoise_Destroy    (void *v);
+MODULE_API void  PinkNoise_Start      (void *v, double freq);
+MODULE_API double PinkNoise_NextSample (void *v);
 
-MODULE_API void *BrownNoiseGenerator_Create     (size_t sample_rate);
-MODULE_API void  BrownNoiseGenerator_Destroy    (void *v);
-MODULE_API void  BrownNoiseGenerator_Start      (void *v, float freq);
-MODULE_API float BrownNoiseGenerator_NextSample (void *v);
+MODULE_API void *BrownNoise_Create     (size_t sample_rate);
+MODULE_API void  BrownNoise_Destroy    (void *v);
+MODULE_API void  BrownNoise_Start      (void *v, double freq);
+MODULE_API double BrownNoise_NextSample (void *v);
 
 MODULE_API void *ADSR_Create        (size_t sample_rate);
 MODULE_API void  ADSR_Destroy       (void *v);
 MODULE_API void  ADSR_Start         (void *v);
-MODULE_API float ADSR_NextSample    (void *v);
-MODULE_API void  ADSR_SetAttack     (void *v, float a);
-MODULE_API void  ADSR_SetDecay      (void *v, float d);
-MODULE_API void  ADSR_SetSustain    (void *v, float s);
-MODULE_API void  ADSR_SetRelease    (void *v, float r);
+MODULE_API double ADSR_NextSample    (void *v);
+MODULE_API void  ADSR_SetAttack     (void *v, double a);
+MODULE_API void  ADSR_SetDecay      (void *v, double d);
+MODULE_API void  ADSR_SetSustain    (void *v, double s);
+MODULE_API void  ADSR_SetRelease    (void *v, double r);
 MODULE_API int   ADSR_Finished      (void *v);
-MODULE_API float ADSR_SecondsPlayed (void *v);
+MODULE_API double ADSR_SecondsPlayed (void *v);
 MODULE_API void  ADSR_StopSustain   (void *v);
 
 MODULE_API void *Delay_Create     (size_t sample_rate);
 MODULE_API void  Delay_Destroy    (void *v);
 MODULE_API void  Delay_Start      (void *v);
-MODULE_API float Delay_NextSample (void *v, float s);
-MODULE_API void  Delay_SetSize    (void *v, float s);
-MODULE_API void  Delay_SetDecay   (void *v, float s);
+MODULE_API double Delay_NextSample (void *v, double s);
+MODULE_API void  Delay_SetSize    (void *v, double s);
+MODULE_API void  Delay_SetDecay   (void *v, double s);
 
 #ifdef __cplusplus
 }

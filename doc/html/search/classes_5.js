@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pinknoisegenerator',['PinkNoiseGenerator',['../classhomu_1_1PinkNoiseGenerator.html',1,'homu']]]
+  ['karplusstrong',['KarplusStrong',['../classhomu_1_1KarplusStrong.html',1,'homu']]]
 ];
