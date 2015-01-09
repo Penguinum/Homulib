@@ -72,9 +72,6 @@ public:
  * Envelopes don't have input samples.
  */
 class Envelope : public Basegen {
-protected:
-    double frequency;
-
 public:
     Envelope(size_t sr) : Basegen(sr) {}
     /**
