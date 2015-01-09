@@ -27,7 +27,7 @@ MODULE_API void *TriangleGenerator_Create     (size_t sample_rate);
 MODULE_API void  TriangleGenerator_Destroy    (void *v);
 MODULE_API void  TriangleGenerator_Start      (void *v, float freq);
 MODULE_API float TriangleGenerator_NextSample (void *v);
-MODULE_API void  TriangleGenerator_SetWidth   (float w);
+MODULE_API void  TriangleGenerator_SetWidth   (void *v, float w);
 
 MODULE_API void *KarplusStrongGenerator_Create     (size_t sample_rate);
 MODULE_API void  KarplusStrongGenerator_Destroy    (void *v);
