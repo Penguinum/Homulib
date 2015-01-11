@@ -20,6 +20,7 @@ set(SOURCE_LIB
     Square.cpp
     WhiteNoise.cpp
     Delay.cpp
+    Distortion.cpp
     cwrapper.cpp
 )
 

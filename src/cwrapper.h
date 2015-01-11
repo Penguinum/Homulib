@@ -39,34 +39,40 @@ MODULE_API void  WhiteNoise_Destroy    (void *v);
 MODULE_API void  WhiteNoise_Start      (void *v, double freq);
 MODULE_API double WhiteNoise_NextSample (void *v);
 
-MODULE_API void *PinkNoise_Create     (size_t sample_rate);
-MODULE_API void  PinkNoise_Destroy    (void *v);
-MODULE_API void  PinkNoise_Start      (void *v, double freq);
+MODULE_API void *PinkNoise_Create      (size_t sample_rate);
+MODULE_API void  PinkNoise_Destroy     (void *v);
+MODULE_API void  PinkNoise_Start       (void *v, double freq);
 MODULE_API double PinkNoise_NextSample (void *v);
 
-MODULE_API void *BrownNoise_Create     (size_t sample_rate);
-MODULE_API void  BrownNoise_Destroy    (void *v);
-MODULE_API void  BrownNoise_Start      (void *v, double freq);
+MODULE_API void *BrownNoise_Create      (size_t sample_rate);
+MODULE_API void  BrownNoise_Destroy     (void *v);
+MODULE_API void  BrownNoise_Start       (void *v, double freq);
 MODULE_API double BrownNoise_NextSample (void *v);
 
-MODULE_API void *ADSR_Create        (size_t sample_rate);
-MODULE_API void  ADSR_Destroy       (void *v);
-MODULE_API void  ADSR_Start         (void *v);
+MODULE_API void  *ADSR_Create        (size_t sample_rate);
+MODULE_API void   ADSR_Destroy       (void *v);
+MODULE_API void   ADSR_Start         (void *v);
 MODULE_API double ADSR_NextSample    (void *v);
-MODULE_API void  ADSR_SetAttack     (void *v, double a);
-MODULE_API void  ADSR_SetDecay      (void *v, double d);
-MODULE_API void  ADSR_SetSustain    (void *v, double s);
-MODULE_API void  ADSR_SetRelease    (void *v, double r);
-MODULE_API int   ADSR_Finished      (void *v);
+MODULE_API void   ADSR_SetAttack     (void *v, double a);
+MODULE_API void   ADSR_SetDecay      (void *v, double d);
+MODULE_API void   ADSR_SetSustain    (void *v, double s);
+MODULE_API void   ADSR_SetRelease    (void *v, double r);
+MODULE_API int    ADSR_Finished      (void *v);
 MODULE_API double ADSR_SecondsPlayed (void *v);
-MODULE_API void  ADSR_StopSustain   (void *v);
+MODULE_API void   ADSR_StopSustain   (void *v);
 
-MODULE_API void *Delay_Create     (size_t sample_rate);
-MODULE_API void  Delay_Destroy    (void *v);
-MODULE_API void  Delay_Start      (void *v);
+MODULE_API void  *Delay_Create     (size_t sample_rate);
+MODULE_API void   Delay_Destroy    (void *v);
+MODULE_API void   Delay_Start      (void *v);
 MODULE_API double Delay_NextSample (void *v, double s);
-MODULE_API void  Delay_SetSize    (void *v, double s);
-MODULE_API void  Delay_SetDecay   (void *v, double s);
+MODULE_API void   Delay_SetSize    (void *v, double s);
+MODULE_API void   Delay_SetDecay   (void *v, double s);
+
+MODULE_API void  *Distortion_Create    (size_t sample_rate);
+MODULE_API void   Distortion_Destroy   (void *v);
+MODULE_API void   Distortion_Start     (void *v);
+MODULE_API double Distortion_NextSample(void *v, double s);
+MODULE_API void   Distortion_SetLevel  (void *v, double s);
 
 #ifdef __cplusplus
 }

@@ -8,6 +8,7 @@
 #include "BrownNoise.h"
 #include "ADSR.h"
 #include "Delay.h"
+#include "Distortion.h"
 
 // Sinewave section
 
@@ -204,8 +205,7 @@ void ADSR_StopSustain(void *v) {
 }
 
 
-// Reverb section
-
+// Delay section
 
 void *Delay_Create (size_t sample_rate) {
     homu::Delay *gen = new homu::Delay(sample_rate);
@@ -235,4 +235,32 @@ void Delay_SetSize (void *v, double value) {
 void Delay_SetDecay (void *v, double value) {
     homu::Delay *gen = static_cast<homu::Delay*>(v);
     gen->setDecay(value);
+}
+
+
+// Distortion section
+
+void *Distortion_Create (size_t sample_rate) {
+    homu::Distortion *gen = new homu::Distortion(sample_rate);
+    return static_cast<void*>(gen);
+}
+
+void  Distortion_Destroy (void *v) {
+    homu::Distortion *gen = static_cast<homu::Distortion*>(v);
+    delete gen;
+}
+
+void  Distortion_Start (void *v) {
+    homu::Distortion *gen = static_cast<homu::Distortion*>(v);
+    gen->start();
+}
+
+double  Distortion_NextSample (void *v, double value) {
+    homu::Distortion *gen = static_cast<homu::Distortion*>(v);
+    return gen->nextSample(value);
+}
+
+void Distortion_SetLevel (void *v, double value) {
+    homu::Distortion *gen = static_cast<homu::Distortion*>(v);
+    gen->setLevel(value);
 }
