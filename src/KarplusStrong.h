@@ -26,7 +26,7 @@ private:
     RingBuffer buf;
 
 public:
-    KarplusStrong(size_t sr) : Generator(sr) {}
+    KarplusStrong() {}
     virtual double nextSample();
     virtual void start(double freq);
 };

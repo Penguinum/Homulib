@@ -4,7 +4,8 @@
 using namespace std;
 
 int main() {
-    homu::Triangle gen(10000);
+    homu::SampleRate = 10000;
+    homu::Triangle gen;
     gen.start(100);
     for (int i = 0; i < 10000; ++i) {
         double s = gen.nextSample();

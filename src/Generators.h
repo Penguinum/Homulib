@@ -12,21 +12,20 @@
 #define GENERATOR_H
 
 #include <stdlib.h>
+#include "SampleRate.h"
 
 namespace homu {
 
 /**
  * Base class for all things producing samples.
- * Accepts sample rate in constructor.
  */
 class Basegen {
 protected:
-    size_t sample_rate;
     size_t sample_num;
 
 public:
-    Basegen(size_t sr) : sample_rate(sr), sample_num(0) {}
-    virtual ~Basegen() {}
+    Basegen() : sample_num(0) {}
+    virtual ~Basegen() {};
 };
 
 /**
@@ -38,7 +37,7 @@ protected:
     double frequency;
 
 public:
-    Generator(size_t sr) : Basegen(sr), frequency(200) {}
+    Generator() : frequency(200) {}
     /**
      * Get next sample.
      */
@@ -56,7 +55,7 @@ public:
  */
 class Effect : public Basegen {
 public:
-    Effect(size_t sr) : Basegen(sr) {}
+    Effect() {}
     /**
      * Get next sample
      */
@@ -73,7 +72,7 @@ public:
  */
 class Envelope : public Basegen {
 public:
-    Envelope(size_t sr) : Basegen(sr) {}
+    Envelope() {}
     /**
      * Get next sample.
      */

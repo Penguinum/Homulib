@@ -21,8 +21,7 @@ namespace homu {
  */
 class WhiteNoise : public Generator {
 public:
-    WhiteNoise(size_t sr)
-        : Generator(sr) {}
+    WhiteNoise() {}
     virtual double nextSample();
     /**
      * Start generator.

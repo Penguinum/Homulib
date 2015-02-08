@@ -12,7 +12,7 @@
 
 namespace homu {
     void Delay::setSize(double v) {
-        buffer.smartResize((size_t)(v * sample_rate));
+        buffer.smartResize((size_t)(v * SampleRate));
         buffer.fill(0);
     }
 

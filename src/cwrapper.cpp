@@ -10,10 +10,15 @@
 #include "Delay.h"
 #include "Distortion.h"
 
+// Just set sample rate
+void Homu_SetSampleRate(size_t sr) {
+    homu::SampleRate = sr;
+}
+
 // Sinewave section
 
-void *Sinewave_Create(size_t sample_rate) {
-    homu::Sinewave *gen = new homu::Sinewave(sample_rate);
+void *Sinewave_Create() {
+    homu::Sinewave *gen = new homu::Sinewave();
     return static_cast<void*>(gen);
 }
 
@@ -34,8 +39,8 @@ double Sinewave_NextSample(void *v) {
 
 // Triangle section
 
-void *Triangle_Create(size_t sample_rate) {
-    homu::Triangle *gen = new homu::Triangle(sample_rate);
+void *Triangle_Create() {
+    homu::Triangle *gen = new homu::Triangle();
     return static_cast<void*>(gen);
 }
 
@@ -61,8 +66,8 @@ void Triangle_SetWidth(void *v, double w) {
 
 //Karplus-Strong section
 
-void *KarplusStrong_Create(size_t sample_rate) {
-    homu::KarplusStrong *gen = new homu::KarplusStrong(sample_rate);
+void *KarplusStrong_Create() {
+    homu::KarplusStrong *gen = new homu::KarplusStrong();
     return static_cast<void*>(gen);
 }
 
@@ -83,8 +88,8 @@ double KarplusStrong_NextSample(void *v) {
 
 //White noise section
 
-void *WhiteNoise_Create(size_t sample_rate) {
-    homu::WhiteNoise *gen = new homu::WhiteNoise(sample_rate);
+void *WhiteNoise_Create() {
+    homu::WhiteNoise *gen = new homu::WhiteNoise();
     return static_cast<void*>(gen);
 }
 
@@ -105,8 +110,8 @@ double WhiteNoise_NextSample(void *v) {
 
 //Pink noise section
 
-void *PinkNoise_Create(size_t sample_rate) {
-    homu::PinkNoise *gen = new homu::PinkNoise(sample_rate);
+void *PinkNoise_Create() {
+    homu::PinkNoise *gen = new homu::PinkNoise();
     return static_cast<void*>(gen);
 }
 
@@ -127,8 +132,8 @@ double PinkNoise_NextSample(void *v) {
 
 //Brown noise section
 
-void *BrownNoise_Create(size_t sample_rate) {
-    homu::BrownNoise *gen = new homu::BrownNoise(sample_rate);
+void *BrownNoise_Create() {
+    homu::BrownNoise *gen = new homu::BrownNoise();
     return static_cast<void*>(gen);
 }
 
@@ -149,8 +154,8 @@ double BrownNoise_NextSample(void *v) {
 
 // ADSR section
 
-void *ADSR_Create(size_t sample_rate) {
-    homu::ADSR *gen = new homu::ADSR(sample_rate);
+void *ADSR_Create() {
+    homu::ADSR *gen = new homu::ADSR();
     return static_cast<void*>(gen);
 }
 
@@ -207,8 +212,8 @@ void ADSR_StopSustain(void *v) {
 
 // Delay section
 
-void *Delay_Create (size_t sample_rate) {
-    homu::Delay *gen = new homu::Delay(sample_rate);
+void *Delay_Create () {
+    homu::Delay *gen = new homu::Delay();
     return static_cast<void*>(gen);
 }
 
@@ -240,8 +245,8 @@ void Delay_SetDecay (void *v, double value) {
 
 // Distortion section
 
-void *Distortion_Create (size_t sample_rate) {
-    homu::Distortion *gen = new homu::Distortion(sample_rate);
+void *Distortion_Create () {
+    homu::Distortion *gen = new homu::Distortion();
     return static_cast<void*>(gen);
 }
 

@@ -96,61 +96,61 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define GENERATOR_H</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span>homu {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;SampleRate.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>homu {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classhomu_1_1Basegen.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classhomu_1_1Basegen.html">Basegen</a> {</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">size_t</span> sample_rate;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">size_t</span> sample_num;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="classhomu_1_1Basegen.html">Basegen</a>(<span class="keywordtype">size_t</span> sr) : sample_rate(sr), sample_num(0) {}</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classhomu_1_1Basegen.html">Basegen</a>() {}</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classhomu_1_1Generator.html">   36</a></span>&#160;<span class="keyword">class </span><a class="code" href="classhomu_1_1Generator.html">Generator</a> : <span class="keyword">public</span> <a class="code" href="classhomu_1_1Basegen.html">Basegen</a> {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">double</span> frequency;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classhomu_1_1Generator.html">Generator</a>(<span class="keywordtype">size_t</span> sr) : <a class="code" href="classhomu_1_1Basegen.html">Basegen</a>(sr), frequency(200) {}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classhomu_1_1Generator.html#affde37d2f54cd78c6093c87a8fd7ddb6">nextSample</a>();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classhomu_1_1Generator.html#a83995efe2121e409a77e9eec050f7d99">start</a>(<span class="keywordtype">double</span> freq);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classhomu_1_1Effect.html">   57</a></span>&#160;<span class="keyword">class </span><a class="code" href="classhomu_1_1Effect.html">Effect</a> : <span class="keyword">public</span> <a class="code" href="classhomu_1_1Basegen.html">Basegen</a> {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="classhomu_1_1Effect.html">Effect</a>(<span class="keywordtype">size_t</span> sr) : <a class="code" href="classhomu_1_1Basegen.html">Basegen</a>(sr) {}</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classhomu_1_1Effect.html#afc85f97beaed87a546709ec0d151bc16">nextSample</a>(<span class="keywordtype">double</span> current_sample);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classhomu_1_1Effect.html#a15ab2ff1e8140bd8ac6cd34e597cbf59">start</a>();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classhomu_1_1Envelope.html">   74</a></span>&#160;<span class="keyword">class </span><a class="code" href="classhomu_1_1Envelope.html">Envelope</a> : <span class="keyword">public</span> <a class="code" href="classhomu_1_1Basegen.html">Basegen</a> {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="classhomu_1_1Envelope.html">Envelope</a>(<span class="keywordtype">size_t</span> sr) : <a class="code" href="classhomu_1_1Basegen.html">Basegen</a>(sr) {}</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classhomu_1_1Envelope.html#a0ffb5c1ca9cd5e463f103cd20a6c3c94">nextSample</a>();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classhomu_1_1Envelope.html#ae8b15d4dc46ae3a6c5071b9b74dbd790">start</a>();</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">double</span> secondsPlayed();</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;};</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">size_t</span> sample_num;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classhomu_1_1Basegen.html">Basegen</a>() : sample_num(0) {}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classhomu_1_1Basegen.html">Basegen</a>() {};</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classhomu_1_1Generator.html">   35</a></span>&#160;<span class="keyword">class </span><a class="code" href="classhomu_1_1Generator.html">Generator</a> : <span class="keyword">public</span> <a class="code" href="classhomu_1_1Basegen.html">Basegen</a> {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">double</span> frequency;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="classhomu_1_1Generator.html">Generator</a>() : frequency(200) {}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classhomu_1_1Generator.html#affde37d2f54cd78c6093c87a8fd7ddb6">nextSample</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classhomu_1_1Generator.html#a83995efe2121e409a77e9eec050f7d99">start</a>(<span class="keywordtype">double</span> freq);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classhomu_1_1Effect.html">   56</a></span>&#160;<span class="keyword">class </span><a class="code" href="classhomu_1_1Effect.html">Effect</a> : <span class="keyword">public</span> <a class="code" href="classhomu_1_1Basegen.html">Basegen</a> {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="classhomu_1_1Effect.html">Effect</a>() {}</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classhomu_1_1Effect.html#afc85f97beaed87a546709ec0d151bc16">nextSample</a>(<span class="keywordtype">double</span> current_sample);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classhomu_1_1Effect.html#a15ab2ff1e8140bd8ac6cd34e597cbf59">start</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classhomu_1_1Envelope.html">   73</a></span>&#160;<span class="keyword">class </span><a class="code" href="classhomu_1_1Envelope.html">Envelope</a> : <span class="keyword">public</span> <a class="code" href="classhomu_1_1Basegen.html">Basegen</a> {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="classhomu_1_1Envelope.html">Envelope</a>() {}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classhomu_1_1Envelope.html#a0ffb5c1ca9cd5e463f103cd20a6c3c94">nextSample</a>();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classhomu_1_1Envelope.html#ae8b15d4dc46ae3a6c5071b9b74dbd790">start</a>();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">double</span> secondsPlayed();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="classhomu_1_1Envelope_html_a0ffb5c1ca9cd5e463f103cd20a6c3c94"><div class="ttname"><a href="classhomu_1_1Envelope.html#a0ffb5c1ca9cd5e463f103cd20a6c3c94">homu::Envelope::nextSample</a></div><div class="ttdeci">virtual double nextSample()</div><div class="ttdef"><b>Definition:</b> Generators.cpp:36</div></div>
 <div class="ttc" id="classhomu_1_1Basegen_html"><div class="ttname"><a href="classhomu_1_1Basegen.html">homu::Basegen</a></div><div class="ttdef"><b>Definition:</b> Generators.h:22</div></div>
-<div class="ttc" id="classhomu_1_1Effect_html"><div class="ttname"><a href="classhomu_1_1Effect.html">homu::Effect</a></div><div class="ttdef"><b>Definition:</b> Generators.h:57</div></div>
-<div class="ttc" id="classhomu_1_1Generator_html"><div class="ttname"><a href="classhomu_1_1Generator.html">homu::Generator</a></div><div class="ttdef"><b>Definition:</b> Generators.h:36</div></div>
+<div class="ttc" id="classhomu_1_1Effect_html"><div class="ttname"><a href="classhomu_1_1Effect.html">homu::Effect</a></div><div class="ttdef"><b>Definition:</b> Generators.h:56</div></div>
+<div class="ttc" id="classhomu_1_1Generator_html"><div class="ttname"><a href="classhomu_1_1Generator.html">homu::Generator</a></div><div class="ttdef"><b>Definition:</b> Generators.h:35</div></div>
 <div class="ttc" id="classhomu_1_1Effect_html_afc85f97beaed87a546709ec0d151bc16"><div class="ttname"><a href="classhomu_1_1Effect.html#afc85f97beaed87a546709ec0d151bc16">homu::Effect::nextSample</a></div><div class="ttdeci">virtual double nextSample(double current_sample)</div><div class="ttdef"><b>Definition:</b> Generators.cpp:28</div></div>
 <div class="ttc" id="classhomu_1_1Effect_html_a15ab2ff1e8140bd8ac6cd34e597cbf59"><div class="ttname"><a href="classhomu_1_1Effect.html#a15ab2ff1e8140bd8ac6cd34e597cbf59">homu::Effect::start</a></div><div class="ttdeci">virtual void start()</div><div class="ttdef"><b>Definition:</b> Generators.cpp:20</div></div>
 <div class="ttc" id="classhomu_1_1Envelope_html_ae8b15d4dc46ae3a6c5071b9b74dbd790"><div class="ttname"><a href="classhomu_1_1Envelope.html#ae8b15d4dc46ae3a6c5071b9b74dbd790">homu::Envelope::start</a></div><div class="ttdeci">virtual void start()</div><div class="ttdef"><b>Definition:</b> Generators.cpp:32</div></div>
-<div class="ttc" id="classhomu_1_1Envelope_html"><div class="ttname"><a href="classhomu_1_1Envelope.html">homu::Envelope</a></div><div class="ttdef"><b>Definition:</b> Generators.h:74</div></div>
+<div class="ttc" id="classhomu_1_1Envelope_html"><div class="ttname"><a href="classhomu_1_1Envelope.html">homu::Envelope</a></div><div class="ttdef"><b>Definition:</b> Generators.h:73</div></div>
 <div class="ttc" id="classhomu_1_1Generator_html_a83995efe2121e409a77e9eec050f7d99"><div class="ttname"><a href="classhomu_1_1Generator.html#a83995efe2121e409a77e9eec050f7d99">homu::Generator::start</a></div><div class="ttdeci">virtual void start(double freq)</div><div class="ttdef"><b>Definition:</b> Generators.cpp:15</div></div>
 <div class="ttc" id="classhomu_1_1Generator_html_affde37d2f54cd78c6093c87a8fd7ddb6"><div class="ttname"><a href="classhomu_1_1Generator.html#affde37d2f54cd78c6093c87a8fd7ddb6">homu::Generator::nextSample</a></div><div class="ttdeci">virtual double nextSample()</div><div class="ttdef"><b>Definition:</b> Generators.cpp:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 12 2015 13:03:26 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 9 2015 02:05:28 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

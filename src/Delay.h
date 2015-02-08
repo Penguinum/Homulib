@@ -22,7 +22,7 @@ private:
     double decay;
 
 public:
-    Delay(size_t sr) : Effect(sr), decay(0.5) {}
+    Delay() : decay(0.5) {}
     void  setSize   (double v);
     void  setDecay  (double v);
     double nextSample(double v);

@@ -24,8 +24,7 @@ private:
     double last_value;
 
 public:
-    BrownNoise(size_t sr)
-        : Generator(sr), last_value(0) {}
+    BrownNoise() : last_value(0) {}
     virtual double nextSample();
     /**
      * Start generator.

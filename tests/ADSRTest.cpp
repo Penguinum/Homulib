@@ -4,7 +4,8 @@
 using namespace std;
 
 int main() {
-    homu::ADSR adsr(10000);
+    homu::SampleRate = 10000;
+    homu::ADSR adsr;
 
     adsr.setAttack(0);
     adsr.setDecay(0);

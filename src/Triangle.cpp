@@ -17,7 +17,7 @@ namespace homu {
 void Triangle::start(double freq) {
     frequency   = freq;
     sample_num  = 0;
-    phase_delta = 2.0 * M_PI * frequency / (double)sample_rate;
+    phase_delta = 2.0 * M_PI * frequency / (double)SampleRate;
     w_up        = M_PI * width;
     w_down      = M_PI * (1 - width);
     phase       = 2 * M_PI - w_up;

@@ -20,7 +20,7 @@ private:
     double level;
 
 public:
-    Distortion(size_t sr) : Effect(sr), level(0.5) {}
+    Distortion() : level(0.5) {}
     void   setLevel  (double v);
     double nextSample(double v);
 };

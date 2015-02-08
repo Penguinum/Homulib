@@ -40,9 +40,7 @@ private:
     double width; // width = width1 / Pi
 
 public:
-    Triangle(size_t sr)
-        : Generator(sr), phase(0), phase_delta(0),
-        w_up(0), w_down(0), width(0.5) {}
+    Triangle() : phase(0), phase_delta(0), w_up(0), w_down(0), width(0.5) {}
     virtual double nextSample();
     virtual void start(double freq);
     void setWidth(double width);

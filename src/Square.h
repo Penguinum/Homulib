@@ -25,7 +25,7 @@ private:
     double phase_delta;
 
 public:
-    Square(size_t sr) : Generator(sr), phase(0), phase_delta(0) {}
+    Square() : phase(0), phase_delta(0) {}
     virtual void start(double freq);
     virtual double nextSample();
 };

@@ -14,7 +14,7 @@ namespace homu {
 
 void KarplusStrong::start(double freq) {
     Generator::start(freq);
-    buf.smartResize((size_t)(sample_rate / frequency));
+    buf.smartResize((size_t)(SampleRate / frequency));
 }
 
 double KarplusStrong::nextSample() {

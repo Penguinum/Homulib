@@ -9,6 +9,7 @@
 */
 
 #include "ADSR.h"
+//#include "SampleRate.h"
 
 namespace homu {
 
@@ -18,13 +19,13 @@ void ADSR::start() {
     sample_num = 0;
 }
 
-void ADSR::setAttack(double a) { attack = size_t(a * sample_rate); }
+void ADSR::setAttack(double a) { attack = size_t(a * SampleRate); }
 
-void ADSR::setDecay(double d) { decay = size_t(d * sample_rate); }
+void ADSR::setDecay(double d) { decay = size_t(d * SampleRate); }
 
 void ADSR::setSustain(double s) { sustain = s; }
 
-void ADSR::setRelease(double r) { release = size_t(r * sample_rate); }
+void ADSR::setRelease(double r) { release = size_t(r * SampleRate); }
 
 double ADSR::nextSample() {
     const int cur_state = state;

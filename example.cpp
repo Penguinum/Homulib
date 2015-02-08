@@ -3,11 +3,12 @@
 #include "src/ADSR.h"
 
 int main() {
-    const size_t sample_rate = 44100;
+    // Just set sample rate
+    homu::SampleRate = 44100;
     // Create and init sinewave generator.
-    homu::Sinewave g(sample_rate);
+    homu::Sinewave g;
     // Create and init adsr effect.
-    homu::ADSR adsr(sample_rate);
+    homu::ADSR adsr;
     // Set parameters.
     adsr.setAttack(0.2);
     adsr.setDecay(0.3);

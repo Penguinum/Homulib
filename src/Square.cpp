@@ -20,7 +20,7 @@ namespace homu {
 void Square::start(double freq) {
     phase       = 0;
     sample_num  = 0;
-    phase_delta = TWO_M_PI * freq / (double)sample_rate;
+    phase_delta = TWO_M_PI * freq / (double)SampleRate;
 }
 
 double Square::nextSample() {

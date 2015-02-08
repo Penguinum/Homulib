@@ -9,9 +9,9 @@
 */
 
 #include "Generators.h"
+#include <iostream>
 
 namespace homu {
-
 void Generator::start(double freq) {
     frequency = freq;
     sample_num = 0;
@@ -38,7 +38,7 @@ double Envelope::nextSample() {
 }
 
 double Envelope::secondsPlayed() {
-    return sample_num / (double)sample_rate;
+    return sample_num / (double)SampleRate;
 }
 
 }

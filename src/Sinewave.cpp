@@ -16,7 +16,7 @@
 namespace homu {
 
 double Sinewave::nextSample() {
-    return std::sin((2*M_PI*frequency*(sample_num++))/((double)sample_rate));
+    return std::sin((2*M_PI*frequency*(sample_num++))/((double)SampleRate));
 }
 
 }

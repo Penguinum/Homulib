@@ -4,7 +4,8 @@
 using namespace std;
 
 int main() {
-    homu::Sinewave gen(10000);
+    homu::SampleRate = 10000;
+    homu::Sinewave gen;
     gen.start(100);
     for (int i = 0; i < 10000; ++i) {
         double s = gen.nextSample();

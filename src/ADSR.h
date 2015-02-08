@@ -37,8 +37,7 @@ public:
         releaseState,
         finalState
     };
-    ADSR(size_t sr)
-        : Envelope(sr), attack(1), decay(1), sustain(1), release(1),
+    ADSR() : attack(1), decay(1), sustain(1), release(1),
           state(attackState), current_sample(0), last_value(0), release_max(0) {}
     void start();
 
