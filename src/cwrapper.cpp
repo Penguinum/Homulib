@@ -1,14 +1,14 @@
 #define BUILD_THIS_LIB
-#include "cwrapper.h"
-#include "Sinewave.h"
-#include "Triangle.h"
-#include "KarplusStrong.h"
-#include "WhiteNoise.h"
-#include "PinkNoise.h"
-#include "BrownNoise.h"
-#include "ADSR.h"
-#include "Delay.h"
-#include "Distortion.h"
+#include <cwrapper.h>
+#include <Sinewave.h>
+#include <Triangle.h>
+#include <KarplusStrong.h>
+#include <WhiteNoise.h>
+#include <PinkNoise.h>
+#include <BrownNoise.h>
+#include <ADSR.h>
+#include <Delay.h>
+#include <Distortion.h>
 
 // Just set sample rate
 void Homu_SetSampleRate(size_t sr) {

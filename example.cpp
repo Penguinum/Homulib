@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "src/Sinewave.h"
-#include "src/ADSR.h"
+#include <Sinewave.h>
+#include <ADSR.h>
 
 int main() {
     // Just set sample rate

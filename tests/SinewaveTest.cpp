@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../src/Sinewave.h"
+#include <Sinewave.h>
 
 using namespace std;
 

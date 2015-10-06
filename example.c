@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "src/cwrapper.h"
+#include <cwrapper.h>
 
 int main() {
     // Just set sample rate

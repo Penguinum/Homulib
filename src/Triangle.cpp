@@ -8,7 +8,7 @@
   ==============================================================================
 */
 #define _USE_MATH_DEFINES
-#include "Triangle.h"
+#include <Triangle.h>
 #include <cmath>
 #include <iostream>
 

@@ -9,7 +9,7 @@
 */
 
 #define _USE_MATH_DEFINES
-#include "Square.h"
+#include <Square.h>
 #include <cmath>
 #include <stdio.h>
 

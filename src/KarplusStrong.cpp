@@ -8,7 +8,7 @@
   ==============================================================================
 */
 
-#include "KarplusStrong.h"
+#include <KarplusStrong.h>
 
 namespace homu {
 

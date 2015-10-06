@@ -8,7 +8,7 @@
   ==============================================================================
 */
 
-#include "SampleRate.h"
+#include <SampleRate.h>
 
 namespace homu {
     size_t SampleRate = 0;

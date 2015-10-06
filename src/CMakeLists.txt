@@ -8,6 +8,8 @@ if (NOT ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC"))
     # No, really, why?
 endif()
 
+include_directories(../headers)
+
 set(SOURCE_LIB  
     ADSR.cpp
     BrownNoise.cpp

@@ -9,7 +9,7 @@
 */
 
 #define _USE_MATH_DEFINES
-#include "Sinewave.h"
+#include <Sinewave.h>
 #include <cmath>
 #include <stdio.h>
 

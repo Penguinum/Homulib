@@ -8,7 +8,7 @@
   ==============================================================================
 */
 
-#include "BrownNoise.h"
+#include <BrownNoise.h>
 #include <cmath>
 #include <cstdlib>
 

@@ -9,7 +9,7 @@ if (NOT ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC"))
 endif()
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99")
 
-include_directories(src)
+include_directories(headers)
 add_subdirectory(src)
 
 add_executable(example-c example.c)

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../src/ADSR.h"
+#include <ADSR.h>
 
 using namespace std;
 

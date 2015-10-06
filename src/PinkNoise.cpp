@@ -8,7 +8,7 @@
   ==============================================================================
 */
 
-#include "PinkNoise.h"
+#include <PinkNoise.h>
 #include <cmath>
 #include <cstdlib>
 
