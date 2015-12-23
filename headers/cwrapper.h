@@ -68,7 +68,6 @@ MODULE_API void   Delay_Destroy    (void *v);
 MODULE_API void   Delay_Start      (void *v);
 MODULE_API double Delay_NextSample (void *v, double s);
 MODULE_API void   Delay_SetSize    (void *v, double s);
-MODULE_API void   Delay_SetDecay   (void *v, double s);
 
 MODULE_API void  *Distortion_Create    ();
 MODULE_API void   Distortion_Destroy   (void *v);
@@ -78,6 +77,7 @@ MODULE_API void   Distortion_SetLevel  (void *v, double s);
 
 #ifdef __cplusplus
 }
-#endif
+#endif // __cplusplus
 
-#endif
+#endif // CWRAPPER_H
+

@@ -12,22 +12,23 @@
 #define DELAY_H
 
 #include "Generators.h"
-#include "ringbuffer.h"
+#include "util/ringbuffer.h"
 
 namespace homu {
 
-class Delay : public Effect {
-private:
+class Delay : public Filter {
+protected:
     RingBuffer buffer;
-    double decay;
 
 public:
-    Delay() : decay(0.5) {}
-    void  setSize   (double v);
-    void  setDecay  (double v);
+    Delay() {}
+    void setSize(double v);
+    void setSizeInSamples(size_t s);
+    size_t getSize();
     double nextSample(double v);
 };
 
 }
 
-#endif
+#endif // DELAY_H
+

@@ -14,19 +14,25 @@ namespace homu {
 
 void KarplusStrong::start(double freq) {
     Generator::start(freq);
-    buf.smartResize((size_t)(SampleRate / frequency));
+    delay_len = (size_t)(SampleRate / frequency);
+    delay.setSizeInSamples(delay_len);
+    delay.start();
+    H_a.start();
+    white_noise.start(1);
+    current_sample = 0;
 }
 
 double KarplusStrong::nextSample() {
-    double current_sample;
-    if (sample_num < buf.size()) {
-        current_sample = rand() / (double)RAND_MAX * 2 - 1;
-    } else {
-        current_sample = 0.5 * (buf.getFromOffset(0) + buf.getFromOffset(1));
+    double input = 0;
+    if (sample_num < delay_len) {
+        input = white_noise.nextSample();
     }
+    const double input_plus_filtered = input + current_sample;
+    const double output = delay.nextSample(input_plus_filtered);
+    current_sample = H_a.nextSample(output);
     sample_num++;
-    buf.apply(current_sample);
-    return current_sample;
+    return output;
 }
 
 }
+

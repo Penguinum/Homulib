@@ -15,7 +15,7 @@
 
 namespace homu {
 
-class Distortion : public Effect {
+class Distortion : public Filter {
 private:
     double level;
 

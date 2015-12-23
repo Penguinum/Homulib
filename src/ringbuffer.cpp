@@ -8,7 +8,7 @@
   ==============================================================================
 */
 
-#include <ringbuffer.h>
+#include <util/ringbuffer.h>
 #include <cstdlib>
 
 namespace homu {
@@ -45,3 +45,4 @@ void RingBuffer::smartResize(size_t N) {
 }
 
 }
+

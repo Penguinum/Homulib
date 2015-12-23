@@ -11,9 +11,11 @@
 #ifndef KARPLUS_H
 #define KARPLUS_H
 
-#include "ringbuffer.h"
 #include "Generators.h"
+#include "WhiteNoise.h"
 #include <stdlib.h>
+#include <Delay.h>
+#include <KS_ext_filters.h>
 
 namespace homu {
 
@@ -23,14 +25,18 @@ namespace homu {
  */
 class KarplusStrong : public Generator {
 private:
-    RingBuffer buf;
+    double current_sample;
+    size_t delay_len;
+    Delay delay;
+    WhiteNoise white_noise;
+    KS_H_a H_a;
 
 public:
-    KarplusStrong() {}
     virtual double nextSample();
     virtual void start(double freq);
 };
 
 }
 
-#endif
+#endif // KARPLUS_H
+

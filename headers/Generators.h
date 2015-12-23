@@ -51,11 +51,11 @@ public:
 
 /**
  * Base class for effects.
- * Effects have input samples.
+ * Filters have input samples.
  */
-class Effect : public Basegen {
+class Filter : public Basegen {
 public:
-    Effect() {}
+    Filter() {}
     /**
      * Get next sample
      */
@@ -86,4 +86,5 @@ public:
 
 }
 
-#endif
+#endif // GENERATORS_H
+

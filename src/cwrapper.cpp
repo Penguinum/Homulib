@@ -237,11 +237,6 @@ void Delay_SetSize (void *v, double value) {
     gen->setSize(value);
 }
 
-void Delay_SetDecay (void *v, double value) {
-    homu::Delay *gen = static_cast<homu::Delay*>(v);
-    gen->setDecay(value);
-}
-
 
 // Distortion section
 

@@ -17,7 +17,7 @@ void Generator::start(double freq) {
     sample_num = 0;
 }
 
-void Effect::start() {
+void Filter::start() {
     sample_num = 0;
 }
 
@@ -25,7 +25,7 @@ double Generator::nextSample() {
     return 0;
 }
 
-double Effect::nextSample(double current_sample) {
+double Filter::nextSample(double current_sample) {
     return current_sample;
 }
 

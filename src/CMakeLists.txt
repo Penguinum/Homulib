@@ -14,6 +14,7 @@ set(SOURCE_LIB
     ADSR.cpp
     BrownNoise.cpp
     Generators.cpp
+    KS_ext_filters.cpp
     KarplusStrong.cpp
     PinkNoise.cpp
     ringbuffer.cpp
