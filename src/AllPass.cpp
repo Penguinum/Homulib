@@ -22,6 +22,10 @@ void AllPass::setGain(const double g) {
     gain = g;
 }
 
+void AllPass::setDelay(const double d) {
+    delay.setSize(d);
+}
+
 double AllPass::nextSample(const double input) {
     const double in_mul_gain = input * (-gain);
     const double out_mul_gain = output * gain;

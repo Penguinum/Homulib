@@ -27,6 +27,7 @@ private:
 public:
     void start();
     void setGain(const double g);
+    void setDelay(const double d);
     double nextSample(const double input);
 };
 
