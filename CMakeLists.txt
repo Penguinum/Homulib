@@ -25,3 +25,4 @@ target_link_libraries(sinewave-test-cpp homulib-static)
 target_link_libraries(triangle-test-cpp homulib-static)
 target_link_libraries(square-test-cpp homulib-static)
 target_link_libraries(adsr-test-cpp homulib-static)
+

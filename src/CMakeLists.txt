@@ -24,6 +24,8 @@ set(SOURCE_LIB
     WhiteNoise.cpp
     Delay.cpp
     Distortion.cpp
+    Reverb.cpp
+    AllPass.cpp
     SampleRate.cpp
     cwrapper.cpp
 )
