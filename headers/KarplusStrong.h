@@ -25,7 +25,7 @@ namespace homu {
  */
 class KarplusStrong : public Generator {
 private:
-    double current_sample;
+    double filtered_output;
     size_t delay_len;
     Delay delay;
     WhiteNoise white_noise;

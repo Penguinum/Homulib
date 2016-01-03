@@ -22,6 +22,7 @@ protected:
 
 public:
     Delay() {}
+    void start();
     void setSize(double v);
     void setSizeInSamples(size_t s);
     size_t getSize();

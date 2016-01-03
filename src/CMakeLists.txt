@@ -16,6 +16,8 @@ set(SOURCE_LIB
     Generators.cpp
     KS_ext_filters.cpp
     KarplusStrong.cpp
+    KarplusStrongFilter.cpp
+    KarplusStrongBattery.cpp
     PinkNoise.cpp
     ringbuffer.cpp
     Sinewave.cpp

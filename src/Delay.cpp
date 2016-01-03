@@ -26,6 +26,10 @@ size_t Delay::getSize() {
     return buffer.size();
 }
 
+void Delay::start() {
+    buffer.fill(0);
+}
+
 double Delay::nextSample(double v) {
     double sample = buffer.getFromOffset(0);
     buffer.apply(v);
