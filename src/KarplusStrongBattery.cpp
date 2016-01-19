@@ -31,8 +31,8 @@ double KarplusStrongBattery::nextSample(double input) {
     double output = 0;
     for (size_t i = 0; i < battery_size; i++) {
         output += battery[i].nextSample(input);
-        output /= (double)battery_size;
     }
+    output /= (double)battery_size;
     return output;
 }
 
