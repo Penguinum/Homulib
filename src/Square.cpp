@@ -8,12 +8,11 @@
   ==============================================================================
 */
 
-#define _USE_MATH_DEFINES
 #include <Square.h>
 #include <cmath>
+#include <util/constants.h>
 #include <stdio.h>
 
-#define TWO_M_PI M_PI * 2
 
 namespace homu {
 

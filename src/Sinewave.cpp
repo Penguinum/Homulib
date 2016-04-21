@@ -8,9 +8,9 @@
   ==============================================================================
 */
 
-#define _USE_MATH_DEFINES
 #include <Sinewave.h>
 #include <cmath>
+#include <util/constants.h>
 #include <stdio.h>
 
 namespace homu {

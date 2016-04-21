@@ -8,6 +8,7 @@ if (NOT ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC"))
     # Why use of stdlib produces so many warnings?
 endif()
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 include_directories(headers)
 add_subdirectory(src)
@@ -25,4 +26,3 @@ target_link_libraries(sinewave-test-cpp homulib-static)
 target_link_libraries(triangle-test-cpp homulib-static)
 target_link_libraries(square-test-cpp homulib-static)
 target_link_libraries(adsr-test-cpp homulib-static)
-

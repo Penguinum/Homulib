@@ -27,6 +27,13 @@ void ADSR::setSustain(double s) { sustain = s; }
 
 void ADSR::setRelease(double r) { release = size_t(r * SampleRate); }
 
+void ADSR::setADSR(double a, double d, double s, double r) {
+    attack = size_t(a * SampleRate); 
+    decay = size_t(d * SampleRate); 
+    sustain = s;
+    release = size_t(r * SampleRate); 
+}
+
 double ADSR::nextSample() {
     const int cur_state = state;
     switch (cur_state) {

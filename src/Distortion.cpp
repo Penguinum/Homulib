@@ -20,7 +20,7 @@ namespace homu {
             return level;
         }
         if (v < -level) {
-            return level;
+            return -level;
         }
         return v;
     }

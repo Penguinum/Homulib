@@ -7,9 +7,10 @@
 
   ==============================================================================
 */
-#define _USE_MATH_DEFINES
+
 #include <Triangle.h>
 #include <cmath>
+#include <util/constants.h>
 #include <iostream>
 
 namespace homu {

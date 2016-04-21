@@ -58,6 +58,13 @@ public:
      */
     void setRelease(double value);
     /**
+     * @param attack is an attack time (in seconds)
+     * @param decay is a decay time (in seconds)
+     * @param sustain is a sustain (0 to 1)
+     * @param release is a release time (in seconds)
+     */
+    void setADSR(double attack, double decay, double sustain, double release);
+    /**
      * Stop sustain.
      */
     void stopSustain();

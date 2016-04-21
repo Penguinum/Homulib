@@ -8,6 +8,8 @@ if (NOT ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC"))
     # No, really, why?
 endif()
 
+set(EXECUTABLE_OUTPUT_PATH "${CMAKE_BINARY_DIR}/../")
+
 include_directories(../headers)
 
 set(SOURCE_LIB  

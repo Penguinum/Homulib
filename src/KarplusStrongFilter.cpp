@@ -11,6 +11,7 @@
 #include <KarplusStrongFilter.h>
 #include <iostream>
 
+
 namespace homu {
 
 void KarplusStrongFilter::start() {
@@ -19,6 +20,7 @@ void KarplusStrongFilter::start() {
     delay.start();
     filtered_output = 0;
 }
+
 void KarplusStrongFilter::setFrequency(const double freq) {
     frequency = freq;
     delay_len = (size_t)(SampleRate / frequency);

@@ -12,9 +12,12 @@
 
 namespace homu {
 
+AllPass::AllPass() {
+    delay.setSize(1);
+}
+
 void AllPass::start() {
     output = 0;
-    delay.setSize(1);
     delay.start();
 }
 

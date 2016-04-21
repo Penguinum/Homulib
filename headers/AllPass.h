@@ -25,6 +25,7 @@ private:
     Delay delay;
 
 public:
+    AllPass();
     void start();
     void setGain(const double g);
     void setDelay(const double d);
