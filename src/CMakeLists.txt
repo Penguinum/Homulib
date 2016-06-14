@@ -10,8 +10,12 @@ endif()
 
 set(EXECUTABLE_OUTPUT_PATH "${CMAKE_BINARY_DIR}/../")
 
-include_directories(../headers)
+include_directories(../include)
+file(GLOB HEADERS
+    "../include/*.h"
+)
 
+# Added ${HEADERS} here just to tell QtCreator that headers belong to project
 set(SOURCE_LIB  
     ADSR.cpp
     BrownNoise.cpp
@@ -32,6 +36,7 @@ set(SOURCE_LIB
     AllPass.cpp
     SampleRate.cpp
     cwrapper.cpp
+    ${HEADERS}
 )
 
 add_library(homulib SHARED ${SOURCE_LIB})
