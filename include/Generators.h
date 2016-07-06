@@ -71,17 +71,31 @@ public:
  * Envelopes don't have input samples.
  */
 class Envelope : public Basegen {
+protected:
+    bool finished_;
+
 public:
-    Envelope() {}
+    Envelope() : finished_(true) {}
     /**
      * Get next sample.
      */
     virtual double nextSample();
     /**
-     * Start generator.
+     * Start envelope.
      */
     virtual void start();
+    /**
+     * Stop envelope.
+     */
+    virtual void stop();
+    /**
+     * Get seconds played after start()
+     */
     double secondsPlayed();
+    /**
+     * If finished return true else return false
+     */
+    bool finished() const;
 };
 
 }

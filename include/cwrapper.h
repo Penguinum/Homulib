@@ -18,62 +18,50 @@ extern "C"
 {
 #endif
 
-MODULE_API void Homu_SetSampleRate(size_t sr);
+MODULE_API void h_set_sample_rate(size_t sr);
 
-MODULE_API void *Sinewave_Create     ();
-MODULE_API void  Sinewave_Destroy    (void *v);
-MODULE_API void  Sinewave_Start      (void *v, double freq);
-MODULE_API double Sinewave_NextSample (void *v);
+// Generators
+MODULE_API void hg_delete(void *v);
+MODULE_API void hg_start(void *v, double freq);
+MODULE_API double hg_next_sample(void *v);
 
-MODULE_API void *Triangle_Create     ();
-MODULE_API void  Triangle_Destroy    (void *v);
-MODULE_API void  Triangle_Start      (void *v, double freq);
-MODULE_API double Triangle_NextSample (void *v);
-MODULE_API void  Triangle_SetWidth   (void *v, double w);
+MODULE_API void *h_sinewave();
 
-MODULE_API void *KarplusStrong_Create     ();
-MODULE_API void  KarplusStrong_Destroy    (void *v);
-MODULE_API void  KarplusStrong_Start      (void *v, double freq);
-MODULE_API double KarplusStrong_NextSample (void *v);
+MODULE_API void *h_triangle();
+MODULE_API void h_triangle_set_width(void *v, double w);
 
-MODULE_API void *WhiteNoise_Create     ();
-MODULE_API void  WhiteNoise_Destroy    (void *v);
-MODULE_API void  WhiteNoise_Start      (void *v, double freq);
-MODULE_API double WhiteNoise_NextSample (void *v);
+MODULE_API void *h_karplus_strong();
 
-MODULE_API void *PinkNoise_Create      ();
-MODULE_API void  PinkNoise_Destroy     (void *v);
-MODULE_API void  PinkNoise_Start       (void *v, double freq);
-MODULE_API double PinkNoise_NextSample (void *v);
+MODULE_API void *h_white_noise();
+MODULE_API void *h_pink_noise();
+MODULE_API void *h_brown_noise();
 
-MODULE_API void *BrownNoise_Create      ();
-MODULE_API void  BrownNoise_Destroy     (void *v);
-MODULE_API void  BrownNoise_Start       (void *v, double freq);
-MODULE_API double BrownNoise_NextSample (void *v);
+// Envelopes
+MODULE_API void he_delete(void *v);
+MODULE_API void he_start(void *v);
+MODULE_API double he_next_sample(void *v);
+MODULE_API int he_finished(void *v);
+MODULE_API double he_seconds_played(void *v);
 
-MODULE_API void  *ADSR_Create        ();
-MODULE_API void   ADSR_Destroy       (void *v);
-MODULE_API void   ADSR_Start         (void *v);
-MODULE_API double ADSR_NextSample    (void *v);
-MODULE_API void   ADSR_SetAttack     (void *v, double a);
-MODULE_API void   ADSR_SetDecay      (void *v, double d);
-MODULE_API void   ADSR_SetSustain    (void *v, double s);
-MODULE_API void   ADSR_SetRelease    (void *v, double r);
-MODULE_API int    ADSR_Finished      (void *v);
-MODULE_API double ADSR_SecondsPlayed (void *v);
-MODULE_API void   ADSR_StopSustain   (void *v);
+MODULE_API void *h_adsr();
+MODULE_API void h_adsr_start(void *v);
+MODULE_API double h_adsr_next_sample(void *v);
+MODULE_API void h_adsr_set_attack(void *v, double a);
+MODULE_API void h_adsr_set_decay(void *v, double d);
+MODULE_API void h_adsr_set_sustain(void *v, double s);
+MODULE_API void h_adsr_set_release(void *v, double r);
+MODULE_API void h_adsr_stop_sustain(void *v);
 
-MODULE_API void  *Delay_Create     ();
-MODULE_API void   Delay_Destroy    (void *v);
-MODULE_API void   Delay_Start      (void *v);
-MODULE_API double Delay_NextSample (void *v, double s);
-MODULE_API void   Delay_SetSize    (void *v, double s);
+// Filters
+MODULE_API void hf_delete(void *v);
+MODULE_API void hf_start(void *v);
+MODULE_API double hf_next_sample(void *v, double s);
 
-MODULE_API void  *Distortion_Create    ();
-MODULE_API void   Distortion_Destroy   (void *v);
-MODULE_API void   Distortion_Start     (void *v);
-MODULE_API double Distortion_NextSample(void *v, double s);
-MODULE_API void   Distortion_SetLevel  (void *v, double s);
+MODULE_API void *h_delay();
+MODULE_API void h_delay_set_size(void *v, double s);
+
+MODULE_API void *h_distortion();
+MODULE_API void h_distortion_set_level(void *v, double s);
 
 #ifdef __cplusplus
 }

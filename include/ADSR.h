@@ -39,7 +39,8 @@ public:
     };
     ADSR() : attack(1), decay(1), sustain(1), release(1),
           state(attackState), current_sample(0), last_value(0), release_max(0) {}
-    void start();
+    void start() override;
+    void stop() override;
 
     /**
      * @param value is an attack time (in seconds)
@@ -71,11 +72,7 @@ public:
     /**
      * Get next sample; generator-style.
      */
-    double nextSample();
-    /**
-     * Check is ADSR finished.
-     */
-    bool finished() const;
+    double nextSample() override;
     /**
      * Get current state.
      * @return number of state (matches enum above)

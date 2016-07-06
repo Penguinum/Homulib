@@ -30,15 +30,24 @@ double Filter::nextSample(double current_sample) {
 }
 
 void Envelope::start() {
+    finished_ = false;
     sample_num = 0;
 }
 
+void Envelope::stop() {
+    finished_ = true;
+}
+
 double Envelope::nextSample() {
-    return 1;
+    return finished_ ? 0 : 1;
 }
 
 double Envelope::secondsPlayed() {
     return sample_num / (double)SampleRate;
+}
+
+bool Envelope::finished() const {
+    return finished_;
 }
 
 }

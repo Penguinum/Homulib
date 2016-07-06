@@ -14,9 +14,15 @@
 namespace homu {
 
 void ADSR::start() {
+    Envelope::start();
     state = attackState;
     current_sample = 0;
     sample_num = 0;
+}
+
+void ADSR::stop() {
+    Envelope::stop();
+    state = finalState;
 }
 
 void ADSR::setAttack(double a) { attack = size_t(a * SampleRate); }
@@ -28,10 +34,10 @@ void ADSR::setSustain(double s) { sustain = s; }
 void ADSR::setRelease(double r) { release = size_t(r * SampleRate); }
 
 void ADSR::setADSR(double a, double d, double s, double r) {
-    attack = size_t(a * SampleRate); 
-    decay = size_t(d * SampleRate); 
+    attack = size_t(a * SampleRate);
+    decay = size_t(d * SampleRate);
     sustain = s;
-    release = size_t(r * SampleRate); 
+    release = size_t(r * SampleRate);
 }
 
 double ADSR::nextSample() {
@@ -72,6 +78,7 @@ double ADSR::nextSample() {
                          release_max * current_sample / (double)release;
             if (current_sample >= release) {
                 state = finalState;
+                finished_ = true;
             }
         }
         break;
@@ -90,10 +97,6 @@ void ADSR::stopSustain() {
         release_max = last_value;
         current_sample = 0;
     }
-}
-
-bool ADSR::finished() const {
-    return (state == finalState);
 }
 
 int ADSR::getState() {

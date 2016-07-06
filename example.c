@@ -3,33 +3,33 @@
 
 int main() {
     // Just set sample rate
-    Homu_SetSampleRate(44100);
+    h_set_sample_rate(44100);
     // Create and init sinewave generator.
-    void *gen = Sinewave_Create();
+    void *gen = h_sinewave();
     // Create and init adsr effect.
-    void *adsr = ADSR_Create();
+    void *adsr = h_adsr();
     // Set parameters.
-    ADSR_SetAttack(adsr, 0.2);
-    ADSR_SetDecay(adsr, 0.3);
-    ADSR_SetSustain(adsr, 0.7);
-    ADSR_SetRelease(adsr, 0.5);
+    h_adsr_set_attack(adsr, 0.2);
+    h_adsr_set_decay(adsr, 0.3);
+    h_adsr_set_sustain(adsr, 0.7);
+    h_adsr_set_release(adsr, 0.5);
 
     // Start producing sinewave with frequency 150 Hz.
-    Sinewave_Start(gen, 150);
+    hg_start(gen, 150);
 
     // Start ADSR.
-    ADSR_Start(adsr);
-    
+    he_start(adsr);
+
     // Produce sine wave with adsr while adsr is not finished.
-    while(! ADSR_Finished(adsr)) {
+    while(! he_finished(adsr)) {
         // we stop sustain after 0.7 seconds of producing values
-        if (ADSR_SecondsPlayed(adsr) >= 0.7) {
-            ADSR_StopSustain(adsr);
+        if (he_seconds_played(adsr) >= 0.7) {
+            h_adsr_stop_sustain(adsr);
         }
-        printf("%f\n", ADSR_NextSample(adsr) * Sinewave_NextSample(gen));
+        printf("%f\n", he_next_sample(adsr) * hg_next_sample(gen));
     }
 
-    Sinewave_Destroy(gen);
-    ADSR_Destroy(adsr);
+    hg_delete(gen);
+    he_delete(adsr);
     return 0;
 }

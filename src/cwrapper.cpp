@@ -11,256 +11,143 @@
 #include <Distortion.h>
 
 // Just set sample rate
-void Homu_SetSampleRate(size_t sr) {
+void h_set_sample_rate(size_t sr) {
     homu::SampleRate = sr;
 }
 
-// Sinewave section
-
-void *Sinewave_Create() {
-    homu::Sinewave *gen = new homu::Sinewave();
-    return static_cast<void*>(gen);
-}
-
-void Sinewave_Destroy(void *v) {
-    homu::Sinewave *gen = static_cast<homu::Sinewave*>(v);
+// Generators
+void hg_delete(void *ptr) {
+    auto *gen = static_cast<homu::Generator*>(ptr);
     delete gen;
 }
 
-void Sinewave_Start(void *v, double freq) {
-    homu::Sinewave *gen = static_cast<homu::Sinewave*>(v);
+void hg_start(void *ptr, double freq) {
+    auto *gen = static_cast<homu::Generator*>(ptr);
     gen->start(freq);
 }
 
-double Sinewave_NextSample(void *v) {
-    homu::Sinewave *gen = static_cast<homu::Sinewave*>(v);
+double hg_next_sample(void *ptr) {
+    auto *gen = static_cast<homu::Generator*>(ptr);
     return gen->nextSample();
 }
 
-// Triangle section
-
-void *Triangle_Create() {
-    homu::Triangle *gen = new homu::Triangle();
+// Create sinewave generator
+void *h_sinewave() {
+    auto gen = new homu::Sinewave();
     return static_cast<void*>(gen);
 }
 
-void Triangle_Destroy(void *v) {
-    homu::Triangle *gen = static_cast<homu::Triangle*>(v);
-    delete gen;
+// Create triangle wave generator
+void *h_triangle() {
+    auto gen = new homu::Triangle();
+    return static_cast<void*>(gen);
 }
 
-void Triangle_Start(void *v, double freq) {
-    homu::Triangle *gen = static_cast<homu::Triangle*>(v);
-    gen->start(freq);
-}
-
-double Triangle_NextSample(void *v) {
-    homu::Triangle *gen = static_cast<homu::Triangle*>(v);
-    return gen->nextSample();
-}
-
-void Triangle_SetWidth(void *v, double w) {
-    homu::Triangle *gen = static_cast<homu::Triangle*>(v);
+void h_triangle_set_width(void *v, double w) {
+    auto gen = static_cast<homu::Triangle*>(v);
     gen->setWidth(w);
 }
 
-//Karplus-Strong section
-
-void *KarplusStrong_Create() {
-    homu::KarplusStrong *gen = new homu::KarplusStrong();
+//Karplus-Strong generator
+void *h_karplus_strong() {
+    auto gen = new homu::KarplusStrong();
     return static_cast<void*>(gen);
 }
 
-void KarplusStrong_Destroy(void *v) {
-    homu::KarplusStrong *gen = static_cast<homu::KarplusStrong*>(v);
-    delete gen;
-}
-
-void KarplusStrong_Start(void *v, double freq) {
-    homu::KarplusStrong *gen = static_cast<homu::KarplusStrong*>(v);
-    gen->start(freq);
-}
-
-double KarplusStrong_NextSample(void *v) {
-    homu::KarplusStrong *gen = static_cast<homu::KarplusStrong*>(v);
-    return gen->nextSample();
-}
-
-//White noise section
-
-void *WhiteNoise_Create() {
-    homu::WhiteNoise *gen = new homu::WhiteNoise();
+// White noise generator
+void *h_white_noise() {
+    auto gen = new homu::WhiteNoise();
     return static_cast<void*>(gen);
 }
 
-void WhiteNoise_Destroy(void *v) {
-    homu::WhiteNoise *gen = static_cast<homu::WhiteNoise*>(v);
-    delete gen;
-}
-
-void WhiteNoise_Start(void *v, double freq) {
-    homu::WhiteNoise *gen = static_cast<homu::WhiteNoise*>(v);
-    gen->start(freq);
-}
-
-double WhiteNoise_NextSample(void *v) {
-    homu::WhiteNoise *gen = static_cast<homu::WhiteNoise*>(v);
-    return gen->nextSample();
-}
-
-//Pink noise section
-
-void *PinkNoise_Create() {
-    homu::PinkNoise *gen = new homu::PinkNoise();
+// Pink noise generator
+void *h_pink_noise() {
+    auto gen = new homu::PinkNoise();
     return static_cast<void*>(gen);
 }
 
-void PinkNoise_Destroy(void *v) {
-    homu::PinkNoise *gen = static_cast<homu::PinkNoise*>(v);
-    delete gen;
-}
-
-void PinkNoise_Start(void *v, double freq) {
-    homu::PinkNoise *gen = static_cast<homu::PinkNoise*>(v);
-    gen->start(freq);
-}
-
-double PinkNoise_NextSample(void *v) {
-    homu::PinkNoise *gen = static_cast<homu::PinkNoise*>(v);
-    return gen->nextSample();
-}
-
-//Brown noise section
-
-void *BrownNoise_Create() {
-    homu::BrownNoise *gen = new homu::BrownNoise();
+// Brownian noise generator
+void *h_brown_noise() {
+    auto gen = new homu::BrownNoise();
     return static_cast<void*>(gen);
 }
 
-void BrownNoise_Destroy(void *v) {
-    homu::BrownNoise *gen = static_cast<homu::BrownNoise*>(v);
-    delete gen;
+// Envelopes
+void he_delete(void *v) {
+    auto env = static_cast<homu::Envelope*>(v);
+    delete env;
 }
 
-void BrownNoise_Start(void *v, double freq) {
-    homu::BrownNoise *gen = static_cast<homu::BrownNoise*>(v);
-    gen->start(freq);
+void he_start(void *v) {
+    auto env = static_cast<homu::Envelope*>(v);
+    env->start();
 }
 
-double BrownNoise_NextSample(void *v) {
-    homu::BrownNoise *gen = static_cast<homu::BrownNoise*>(v);
-    return gen->nextSample();
+double he_next_sample(void *v) {
+    auto env = static_cast<homu::Envelope*>(v);
+    return env->nextSample();
 }
 
-// ADSR section
-
-void *ADSR_Create() {
-    homu::ADSR *gen = new homu::ADSR();
-    return static_cast<void*>(gen);
+int he_finished(void *v) {
+    auto env = static_cast<homu::Envelope*>(v);
+    return env->finished() ? 1 : 0;
 }
 
-void ADSR_Destroy(void *v) {
-    homu::ADSR *gen = static_cast<homu::ADSR*>(v);
-    delete gen;
+double he_seconds_played(void *v) {
+    auto env = static_cast<homu::Envelope*>(v);
+    return env->secondsPlayed();
 }
 
-void ADSR_Start(void *v) {
-    homu::ADSR *gen = static_cast<homu::ADSR*>(v);
-    gen->start();
+// ADSR envelope
+void *h_adsr() {
+    auto env = new homu::ADSR();
+    return static_cast<void*>(env);
 }
 
-double ADSR_NextSample(void *v) {
-    homu::ADSR *gen = static_cast<homu::ADSR*>(v);
-    return gen->nextSample();
+void h_adsr_set_attack(void *v, double a) {
+    auto env = static_cast<homu::ADSR*>(v);
+    env->setAttack(a);
 }
 
-void ADSR_SetAttack(void *v, double a) {
-    homu::ADSR *gen = static_cast<homu::ADSR*>(v);
-    gen->setAttack(a);
+void h_adsr_set_decay(void *v, double d) {
+    auto env = static_cast<homu::ADSR*>(v);
+    env->setDecay(d);
 }
 
-void ADSR_SetDecay(void *v, double d) {
-    homu::ADSR *gen = static_cast<homu::ADSR*>(v);
-    gen->setDecay(d);
+void h_adsr_set_sustain(void *v, double s) {
+    auto env = static_cast<homu::ADSR*>(v);
+    env->setSustain(s);
 }
 
-void ADSR_SetSustain(void *v, double s) {
-    homu::ADSR *gen = static_cast<homu::ADSR*>(v);
-    gen->setSustain(s);
+void h_adsr_set_release(void *v, double r) {
+    auto env = static_cast<homu::ADSR*>(v);
+    env->setRelease(r);
 }
 
-void ADSR_SetRelease(void *v, double r) {
-    homu::ADSR *gen = static_cast<homu::ADSR*>(v);
-    gen->setRelease(r);
-}
-
-int ADSR_Finished(void *v) {
-    homu::ADSR *gen = static_cast<homu::ADSR*>(v);
-    return gen->finished() ? 1 : 0;
-}
-
-double ADSR_SecondsPlayed(void *v) {
-    homu::ADSR *gen = static_cast<homu::ADSR*>(v);
-    return gen->secondsPlayed();
-}
-
-void ADSR_StopSustain(void *v) {
-    homu::ADSR *gen = static_cast<homu::ADSR*>(v);
+void h_adsr_stop_sustain(void *v) {
+    auto gen = static_cast<homu::ADSR*>(v);
     gen->stopSustain();
 }
 
 
 // Delay section
-
-void *Delay_Create () {
-    homu::Delay *gen = new homu::Delay();
-    return static_cast<void*>(gen);
+void *h_delay () {
+    auto fil = new homu::Delay();
+    return static_cast<void*>(fil);
 }
-
-void  Delay_Destroy (void *v) {
-    homu::Delay *gen = static_cast<homu::Delay*>(v);
-    delete gen;
-}
-
-void  Delay_Start (void *v) {
-    homu::Delay *gen = static_cast<homu::Delay*>(v);
-    gen->start();
-}
-
-double  Delay_NextSample (void *v, double value) {
-    homu::Delay *gen = static_cast<homu::Delay*>(v);
-    return gen->nextSample(value);
-}
-
-void Delay_SetSize (void *v, double value) {
-    homu::Delay *gen = static_cast<homu::Delay*>(v);
-    gen->setSize(value);
+void h_delay_set_size(void *v, double value) {
+    auto fil = static_cast<homu::Delay*>(v);
+    fil->setSize(value);
 }
 
 
 // Distortion section
-
-void *Distortion_Create () {
-    homu::Distortion *gen = new homu::Distortion();
-    return static_cast<void*>(gen);
+void *h_distortion () {
+    auto fil = new homu::Distortion();
+    return static_cast<void*>(fil);
 }
 
-void  Distortion_Destroy (void *v) {
-    homu::Distortion *gen = static_cast<homu::Distortion*>(v);
-    delete gen;
-}
-
-void  Distortion_Start (void *v) {
-    homu::Distortion *gen = static_cast<homu::Distortion*>(v);
-    gen->start();
-}
-
-double  Distortion_NextSample (void *v, double value) {
-    homu::Distortion *gen = static_cast<homu::Distortion*>(v);
-    return gen->nextSample(value);
-}
-
-void Distortion_SetLevel (void *v, double value) {
-    homu::Distortion *gen = static_cast<homu::Distortion*>(v);
+void h_distortion_set_level (void *v, double value) {
+    auto gen = static_cast<homu::Distortion*>(v);
     gen->setLevel(value);
 }
