@@ -1,6 +1,7 @@
 #define BUILD_THIS_LIB
 #include <cwrapper.h>
 #include <Sinewave.h>
+#include <Square.h>
 #include <Triangle.h>
 #include <KarplusStrong.h>
 #include <WhiteNoise.h>
@@ -31,9 +32,15 @@ double hg_next_sample(void *ptr) {
     return gen->nextSample();
 }
 
-// Create sinewave generator
+// Create sine wave generator
 void *h_sinewave() {
     auto gen = new homu::Sinewave();
+    return static_cast<void*>(gen);
+}
+
+// Create square wave generator
+void *h_square() {
+    auto gen = new homu::Square();
     return static_cast<void*>(gen);
 }
 
@@ -129,8 +136,24 @@ void h_adsr_stop_sustain(void *v) {
     gen->stopSustain();
 }
 
+// Filters
+void hf_delete(void *ptr) {
+    auto *gen = static_cast<homu::Filter*>(ptr);
+    delete gen;
+}
 
-// Delay section
+void hf_start(void *ptr) {
+    auto *fil = static_cast<homu::Filter*>(ptr);
+    fil->start();
+}
+
+double hf_next_sample(void *ptr, double s) {
+    auto *fil = static_cast<homu::Filter*>(ptr);
+    return fil->nextSample(s);
+}
+
+
+// Delay filter
 void *h_delay () {
     auto fil = new homu::Delay();
     return static_cast<void*>(fil);
@@ -141,13 +164,13 @@ void h_delay_set_size(void *v, double value) {
 }
 
 
-// Distortion section
+// Distortion filter
 void *h_distortion () {
     auto fil = new homu::Distortion();
     return static_cast<void*>(fil);
 }
 
 void h_distortion_set_level (void *v, double value) {
-    auto gen = static_cast<homu::Distortion*>(v);
-    gen->setLevel(value);
+    auto fil = static_cast<homu::Distortion*>(v);
+    fil->setLevel(value);
 }

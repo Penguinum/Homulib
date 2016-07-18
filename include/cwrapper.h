@@ -27,6 +27,8 @@ MODULE_API double hg_next_sample(void *v);
 
 MODULE_API void *h_sinewave();
 
+MODULE_API void *h_square();
+
 MODULE_API void *h_triangle();
 MODULE_API void h_triangle_set_width(void *v, double w);
 
