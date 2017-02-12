@@ -22,7 +22,7 @@ namespace homu {
 class WhiteNoise : public Generator {
 public:
     WhiteNoise() {}
-    virtual double nextSample();
+    virtual double tick();
     /**
      * Start generator.
      * @param freq is useless here for now.

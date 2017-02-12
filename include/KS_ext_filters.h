@@ -26,7 +26,7 @@ private:
 
 public:
     void start();
-    double nextSample(double s);
+    double tick(double s);
 };
 
 }

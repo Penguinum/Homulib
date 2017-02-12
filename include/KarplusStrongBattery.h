@@ -31,7 +31,7 @@ private:
 
 public:
     KSADSRFilter();
-    double nextSample(const double input);
+    double tick(const double input);
     void start();
     void stop();
     bool finished();
@@ -53,7 +53,7 @@ public:
     void addString(const double freq);
     void removeString(const double freq);
     void start();
-    double nextSample(double input);
+    double tick(double input);
 };
 
 }

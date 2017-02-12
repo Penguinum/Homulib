@@ -23,7 +23,7 @@ namespace homu {
 class Sinewave : public Generator {
 public:
     Sinewave() {}
-    virtual double nextSample();
+    virtual double tick();
 };
 
 }

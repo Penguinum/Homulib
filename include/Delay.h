@@ -26,7 +26,7 @@ public:
     void setSize(double v);
     void setSizeInSamples(size_t s);
     size_t getSize();
-    double nextSample(double v);
+    double tick(double v);
 };
 
 }

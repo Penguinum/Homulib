@@ -27,7 +27,7 @@ private:
 public:
     Square() : phase(0), phase_delta(0) {}
     virtual void start(double freq);
-    virtual double nextSample();
+    virtual double tick();
 };
 
 }

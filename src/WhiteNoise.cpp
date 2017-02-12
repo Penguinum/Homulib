@@ -18,7 +18,7 @@ void WhiteNoise::start(double freq) {
     frequency = freq;
 }
 
-double WhiteNoise::nextSample() {
+double WhiteNoise::tick() {
     return rand() / (double)RAND_MAX * 2.0 - 1;
 }
 

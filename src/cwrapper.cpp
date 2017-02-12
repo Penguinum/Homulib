@@ -29,7 +29,7 @@ void hg_start(void *ptr, double freq) {
 
 double hg_next_sample(void *ptr) {
     auto *gen = static_cast<homu::Generator*>(ptr);
-    return gen->nextSample();
+    return gen->tick();
 }
 
 // Create sine wave generator
@@ -92,7 +92,7 @@ void he_start(void *v) {
 
 double he_next_sample(void *v) {
     auto env = static_cast<homu::Envelope*>(v);
-    return env->nextSample();
+    return env->tick();
 }
 
 int he_finished(void *v) {
@@ -149,7 +149,7 @@ void hf_start(void *ptr) {
 
 double hf_next_sample(void *ptr, double s) {
     auto *fil = static_cast<homu::Filter*>(ptr);
-    return fil->nextSample(s);
+    return fil->tick(s);
 }
 
 

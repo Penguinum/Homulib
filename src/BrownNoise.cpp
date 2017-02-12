@@ -19,7 +19,7 @@ void BrownNoise::start(double freq) {
     last_value = 0;
 }
 
-double BrownNoise::nextSample() {
+double BrownNoise::tick() {
     double white = rand() / (double)RAND_MAX * 2.0 - 1;
     last_value = (last_value + 0.02 * white) / 1.02;
     return last_value;

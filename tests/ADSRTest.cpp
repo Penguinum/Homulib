@@ -13,7 +13,7 @@ int main() {
     adsr.setRelease(0);
     adsr.start();
     for (int i = 0; i < 1000; ++i) {
-        double s = adsr.nextSample();
+        double s = adsr.tick();
         if (i >= 500) {
             adsr.stopSustain();
         }
@@ -31,7 +31,7 @@ int main() {
     while (true) {
         if (adsr.secondsPlayed() >= 0.5) { adsr.stopSustain(); }
         if (adsr.finished()) { break; }
-        double s = adsr.nextSample();
+        double s = adsr.tick();
         if (s > 1 || s < -1) {
             cerr << "Warning: s = " << s << endl;
         }
@@ -46,7 +46,7 @@ int main() {
     while (true) {
         if (adsr.secondsPlayed() >= 0.05) { adsr.stopSustain(); }
         if (adsr.finished()) { break; }
-        double s = adsr.nextSample();
+        double s = adsr.tick();
         if (s > 1 || s < -1) {
             cerr << "Warning: s = " << s << endl;
         }

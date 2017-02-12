@@ -20,7 +20,7 @@ void KS_H_a::start() {
 
 // H_a(z) = (1 + z^-1) / 2
 
-double KS_H_a::nextSample(double s) {
+double KS_H_a::tick(double s) {
     const double result = (previous_sample + s) / 2.0;
     previous_sample = s;
     return result;

@@ -24,7 +24,7 @@ void Triangle::start(double freq) {
     phase       = 2 * M_PI - w_up;
 }
 
-double Triangle::nextSample() {
+double Triangle::tick() {
     if (phase >= 2 * M_PI) {
         phase -= 2 * M_PI;
     }

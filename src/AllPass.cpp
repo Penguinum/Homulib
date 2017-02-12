@@ -29,10 +29,10 @@ void AllPass::setDelay(const double d) {
     delay.setSize(d);
 }
 
-double AllPass::nextSample(const double input) {
+double AllPass::tick(const double input) {
     const double in_mul_gain = input * (-gain);
     const double out_mul_gain = output * gain;
-    const double output = in_mul_gain + delay.nextSample(input + out_mul_gain);
+    const double output = in_mul_gain + delay.tick(input + out_mul_gain);
     return output;
 }
 

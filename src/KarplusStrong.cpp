@@ -22,14 +22,14 @@ void KarplusStrong::start(double freq) {
     filtered_output = 0;
 }
 
-double KarplusStrong::nextSample() {
+double KarplusStrong::tick() {
     double input = 0;
     if (sample_num < delay_len) {
-        input = white_noise.nextSample();
+        input = white_noise.tick();
     }
     const double input_plus_filtered = input + filtered_output;
-    const double output = delay.nextSample(input_plus_filtered);
-    filtered_output = H_a.nextSample(output);
+    const double output = delay.tick(input_plus_filtered);
+    filtered_output = H_a.tick(output);
     sample_num++;
     return output;
 }

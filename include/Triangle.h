@@ -41,7 +41,7 @@ private:
 
 public:
     Triangle() : phase(0), phase_delta(0), w_up(0), w_down(0), width(0.5) {}
-    virtual double nextSample();
+    virtual double tick();
     virtual void start(double freq);
     void setWidth(double width);
 };

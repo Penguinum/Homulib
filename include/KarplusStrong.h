@@ -32,7 +32,7 @@ private:
     KS_H_a H_a;
 
 public:
-    virtual double nextSample();
+    virtual double tick();
     virtual void start(double freq);
 };
 

@@ -19,7 +19,7 @@ void PinkNoise::start(double freq) {
     last_value = 0;
 }
 
-double PinkNoise::nextSample() {
+double PinkNoise::tick() {
     double white = rand()/(double)RAND_MAX * 2.0 - 1;
     b0 = 0.99886 * b0 + white * 0.0555179;
     b1 = 0.99332 * b1 + white * 0.0750759;

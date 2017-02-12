@@ -38,11 +38,11 @@ inline bool KSADSRFilter::finished() {
     return adsr.finished();
 }
 
-double KSADSRFilter::nextSample(const double sample) {
+double KSADSRFilter::tick(const double sample) {
     if (adsr.finished()) {
         return 0;
     }
-    return KarplusStrongFilter::nextSample(sample) * adsr.nextSample() * 0.2;
+    return KarplusStrongFilter::tick(sample) * adsr.tick() * 0.2;
 }
 
 // --------------------------------------------------------
@@ -90,11 +90,11 @@ void KarplusStrongBattery::start() {
     }
 }
 
-double KarplusStrongBattery::nextSample(double input) {
+double KarplusStrongBattery::tick(double input) {
     double output = 0;
     for (std::map<double, KSADSRFilter>::iterator iter = battery.begin();
             iter != battery.end(); ++iter) {
-        output += iter->second.nextSample(input);
+        output += iter->second.tick(input);
     }
     return std::tanh(output/magic_divide_number);
 }

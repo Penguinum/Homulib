@@ -40,7 +40,7 @@ void ADSR::setADSR(double a, double d, double s, double r) {
     release = size_t(r * SampleRate);
 }
 
-double ADSR::nextSample() {
+double ADSR::tick() {
     const int cur_state = state;
     switch (cur_state) {
     case attackState:

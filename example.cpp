@@ -27,7 +27,7 @@ int main() {
         if (adsr.secondsPlayed() >= 0.7) {
             adsr.stopSustain();
         }
-        double sample = adsr.nextSample() * g.nextSample();
+        double sample = adsr.tick() * g.tick();
         printf("%f\n", sample);
     }
     

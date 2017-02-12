@@ -25,9 +25,9 @@ void Reverb::setGain(const double g) {
     gain = g;
 }
 
-double Reverb::nextSample(const double input) {
+double Reverb::tick(const double input) {
     const double out_mul_gain = previous_sample * gain;
-    const double output = out_mul_gain + delay.nextSample(input + out_mul_gain);
+    const double output = out_mul_gain + delay.tick(input + out_mul_gain);
     previous_sample = output;
     return output;
 }

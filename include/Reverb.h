@@ -29,7 +29,7 @@ public:
     Reverb();
     void start();
     void setGain(const double g);
-    double nextSample(double input);
+    double tick(double input);
 };
 
 }

@@ -25,7 +25,7 @@ private:
 
 public:
     BrownNoise() : last_value(0) {}
-    virtual double nextSample();
+    virtual double tick();
     /**
      * Start generator.
      * @param freq is useless here for now.

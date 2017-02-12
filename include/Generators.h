@@ -41,7 +41,7 @@ public:
     /**
      * Get next sample.
      */
-    virtual double nextSample();
+    virtual double tick();
     /**
      * Start generator.
      * @param freq is a desired frequency.
@@ -59,7 +59,7 @@ public:
     /**
      * Get next sample
      */
-    virtual double nextSample(double current_sample);
+    virtual double tick(double current_sample);
     /**
      * Start generator.
      */
@@ -79,7 +79,7 @@ public:
     /**
      * Get next sample.
      */
-    virtual double nextSample();
+    virtual double tick();
     /**
      * Start envelope.
      */

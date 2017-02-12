@@ -32,7 +32,7 @@ private:
     KS_H_a H_a;
 
 public:
-    double nextSample(const double input);
+    double tick(const double input);
     void setFrequency(const double freq);
     void start();
 

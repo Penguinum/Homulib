@@ -72,7 +72,7 @@ public:
     /**
      * Get next sample; generator-style.
      */
-    double nextSample() override;
+    double tick() override;
     /**
      * Get current state.
      * @return number of state (matches enum above)

@@ -21,11 +21,11 @@ void Filter::start() {
     sample_num = 0;
 }
 
-double Generator::nextSample() {
+double Generator::tick() {
     return 0;
 }
 
-double Filter::nextSample(double current_sample) {
+double Filter::tick(double current_sample) {
     return current_sample;
 }
 
@@ -38,7 +38,7 @@ void Envelope::stop() {
     finished_ = true;
 }
 
-double Envelope::nextSample() {
+double Envelope::tick() {
     return finished_ ? 0 : 1;
 }
 

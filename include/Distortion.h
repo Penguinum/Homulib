@@ -22,7 +22,7 @@ private:
 public:
     Distortion() : level(0.5) {}
     void   setLevel  (double v);
-    double nextSample(double v);
+    double tick(double v);
 };
 
 }

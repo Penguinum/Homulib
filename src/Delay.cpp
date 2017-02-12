@@ -30,7 +30,7 @@ void Delay::start() {
     buffer.fill(0);
 }
 
-double Delay::nextSample(double v) {
+double Delay::tick(double v) {
     double sample = buffer.getFromOffset(0);
     buffer.apply(v);
     return sample;

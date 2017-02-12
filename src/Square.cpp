@@ -22,7 +22,7 @@ void Square::start(double freq) {
     phase_delta = TWO_M_PI * freq / (double)SampleRate;
 }
 
-double Square::nextSample() {
+double Square::tick() {
     if (phase >= TWO_M_PI) {
         phase -= TWO_M_PI;
     }

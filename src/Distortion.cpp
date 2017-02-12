@@ -15,7 +15,7 @@ namespace homu {
         level = v;
     }
 
-    double Distortion::nextSample(double v) {
+    double Distortion::tick(double v) {
         if (v > level) {
             return level;
         }

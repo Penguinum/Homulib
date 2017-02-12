@@ -27,10 +27,10 @@ void KarplusStrongFilter::setFrequency(const double freq) {
     delay.setSizeInSamples(delay_len);
 }
 
-double KarplusStrongFilter::nextSample(const double input) {
+double KarplusStrongFilter::tick(const double input) {
     const double input_plus_filtered = input + filtered_output;
-    const double output = delay.nextSample(input_plus_filtered);
-    filtered_output = H_a.nextSample(output);
+    const double output = delay.tick(input_plus_filtered);
+    filtered_output = H_a.tick(output);
     return output;
 }
 
